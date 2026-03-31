@@ -7,28 +7,36 @@ import {
 
 const faqs = [
   {
-    q: "Was kostet eine kieferorthopädische Behandlung?",
-    a: "Die Kosten variieren je nach Behandlungsumfang. Bei gesetzlich versicherten Kindern und Jugendlichen übernimmt die Krankenkasse einen Großteil der Kosten. Für Erwachsene und Zusatzleistungen erstellen wir Ihnen einen transparenten Kostenvoranschlag.",
+    q: "Ab welchem Alter kann mein Kind behandelt werden?",
+    a: "Eine erste kieferorthopädische Beratung empfehlen wir ab etwa 6–7 Jahren. So lassen sich Fehlstellungen frühzeitig erkennen und bei Bedarf sanft korrigieren.",
   },
   {
-    q: "Ab welchem Alter sollte mein Kind zum Kieferorthopäden?",
-    a: "Wir empfehlen eine erste Untersuchung im Alter von 6–7 Jahren. So können wir frühzeitig eventuelle Fehlstellungen erkennen und die Entwicklung optimal begleiten.",
+    q: "Bin ich zu alt für eine Zahnkorrektur?",
+    a: "Definitiv nicht! Viele unserer Patient:innen sind Erwachsene – die heutigen Methoden sind effektiv, diskret und komfortabel.",
   },
   {
-    q: "Wie lange dauert eine Behandlung?",
-    a: "Die durchschnittliche Behandlungsdauer beträgt 1,5 bis 3 Jahre, abhängig von der Komplexität der Zahnfehlstellung. Bei Aligner-Therapien kann die Dauer kürzer sein.",
+    q: "Welche Spangenarten bieten Sie an?",
+    a: "Je nach Alter und Bedarf: herausnehmbare Spangen, feste Zahnspangen, Keramikbrackets oder transparente Aligner. Wir beraten Sie individuell.",
   },
   {
-    q: "Tut eine Zahnspange weh?",
-    a: "In den ersten Tagen nach dem Einsetzen oder Nachstellen kann es zu leichten Druckgefühlen kommen. Diese klingen schnell ab und sind mit modernen Materialien minimal.",
+    q: "Was gilt als kieferorthopädischer Notfall?",
+    a: "Zum Beispiel ein gebrochenes Bracket, ein störender Draht oder Schmerzen durch die Spange. Rufen Sie uns an – wir beraten Sie, ob Sie direkt vorbeikommen sollten.",
   },
   {
-    q: "Kann ich auch als Erwachsener eine Zahnspange bekommen?",
-    a: "Selbstverständlich! Immer mehr Erwachsene entscheiden sich für eine kieferorthopädische Behandlung. Mit Invisalign oder linguale Brackets bieten wir besonders ästhetische Lösungen.",
+    q: "Kann ich auch ohne Termin bei Notfällen kommen?",
+    a: "Ja, aber bitte rufen Sie immer vorher kurz an – so können wir die Dringlichkeit einschätzen und schnell reagieren.",
   },
   {
-    q: "Wie oft muss ich zur Kontrolle kommen?",
-    a: "In der Regel alle 4–8 Wochen, je nach Behandlungsphase. Die Termine dauern meist nur 15–30 Minuten.",
+    q: "Ich habe Angst vor Schmerzen – wie läuft die Behandlung ab?",
+    a: "Unsere Methoden sind sanft und auf minimalen Stress ausgerichtet. Wir erklären jeden Schritt genau und behandeln schmerzarm – mit Empathie und moderner Technik.",
+  },
+  {
+    q: "Muss ich meine Angst vorher mitteilen?",
+    a: "Sehr gerne – denn je mehr wir wissen, desto besser können wir auf Sie eingehen. Sagen Sie uns einfach bei der Terminvereinbarung Bescheid.",
+  },
+  {
+    q: "Was kann ich zu Hause tun, wenn ein Draht stört?",
+    a: "Der Draht kann vorsichtig mit einem stumpfen Gegenstand (z.B. einem Löffelstiel) weggedrückt werden. Wachs aus dem Startset hilft gegen Reibung. Kommen Sie aber zeitnah in die Praxis, damit wir professionell helfen können.",
   },
 ];
 
