@@ -5,10 +5,12 @@ import { Button } from "@/components/ui/button";
 const navLinks = [
   { label: "Leistungen", href: "#leistungen" },
   { label: "Über uns", href: "#ueber-uns" },
-  { label: "Behandlung", href: "#behandlung" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Team", href: "#team" },
+  { label: "Patientenstimmen", href: "#bewertungen" },
   { label: "Kontakt", href: "#kontakt" },
 ];
+
+const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopaedie-ajoudani-negar?utm_campaign=website-button&utm_source=kieferorthopaedie-ajoudani-negar-website-button&utm_medium=referral&utm_content=option-8&utm_term=kieferorthopaedie-ajoudani-negar";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -16,11 +18,9 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4">
-        <a href="/" className="flex items-center gap-2">
-          <span className="text-2xl font-display font-bold text-primary">KFO</span>
-          <span className="text-sm font-body text-muted-foreground hidden sm:block">
-            Kieferorthopädie<br />Bergedorf
-          </span>
+        <a href="/" className="flex flex-col">
+          <span className="text-xl font-display font-bold text-primary leading-tight">Dr. Negar Ajoudani</span>
+          <span className="text-[11px] font-body text-muted-foreground tracking-wide">Kieferorthopädie Bergedorf</span>
         </a>
 
         <nav className="hidden lg:flex items-center gap-8">
@@ -36,12 +36,17 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <a href="tel:+4940123456789" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+          <a
+            href="tel:+49407245241"
+            className="flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+          >
             <Phone className="h-4 w-4" />
-            040 123 456 789
+            040 7 24 52 41
           </a>
-          <Button asChild>
-            <a href="#kontakt">Termin vereinbaren</a>
+          <Button asChild className="rounded-full">
+            <a href={DOCTOLIB_URL} target="_blank" rel="noopener noreferrer">
+              Termin vereinbaren
+            </a>
           </Button>
         </div>
 
@@ -67,12 +72,14 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <a href="tel:+4940123456789" className="flex items-center gap-2 text-sm text-muted-foreground py-2">
+            <a href="tel:+49407245241" className="flex items-center gap-2 text-sm font-semibold text-primary py-2">
               <Phone className="h-4 w-4" />
-              040 123 456 789
+              040 7 24 52 41
             </a>
-            <Button asChild className="w-full">
-              <a href="#kontakt" onClick={() => setMobileOpen(false)}>Termin vereinbaren</a>
+            <Button asChild className="w-full rounded-full">
+              <a href={DOCTOLIB_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
+                Termin vereinbaren
+              </a>
             </Button>
           </nav>
         </div>

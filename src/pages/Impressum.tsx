@@ -18,15 +18,16 @@ const Impressum = () => {
             <h2 className="text-xl font-display font-semibold text-foreground">Angaben gemäß § 5 TMG</h2>
             <p>
               Kieferorthopädie Bergedorf<br />
-              Dr. Anna Müller<br />
-              Bergedorfer Straße 123<br />
+              Dr. Negar Ajoudani<br />
+              Fachzahnärztin für Kieferorthopädie<br />
+              Bergedorfer Schloßstraße 18<br />
               21029 Hamburg
             </p>
 
             <h2 className="text-xl font-display font-semibold text-foreground">Kontakt</h2>
             <p>
-              Telefon: 040 123 456 789<br />
-              E-Mail: info@kfo-bergedorf.de
+              Telefon: <a href="tel:+49407245241" className="text-primary hover:underline">+49 (0) 40 7 24 52 41</a><br />
+              E-Mail: <a href="mailto:praxis@kieferorthopaedie-bergedorf.de" className="text-primary hover:underline">praxis@kieferorthopaedie-bergedorf.de</a>
             </p>
 
             <h2 className="text-xl font-display font-semibold text-foreground">Berufsbezeichnung</h2>

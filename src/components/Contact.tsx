@@ -6,9 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 
+const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopaedie-ajoudani-negar?utm_campaign=website-button&utm_source=kieferorthopaedie-ajoudani-negar-website-button&utm_medium=referral&utm_content=option-8&utm_term=kieferorthopaedie-ajoudani-negar";
+
 const Contact = () => {
   const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", subject: "Erstberatung", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,7 +18,7 @@ const Contact = () => {
       title: "Nachricht gesendet!",
       description: "Vielen Dank für Ihre Anfrage. Wir melden uns schnellstmöglich bei Ihnen.",
     });
-    setForm({ name: "", email: "", phone: "", message: "" });
+    setForm({ firstName: "", lastName: "", email: "", subject: "Erstberatung", message: "" });
   };
 
   return (
@@ -24,30 +26,62 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <p className="text-sm font-medium tracking-widest uppercase text-primary mb-3">
-            Kontakt
+            Haben Sie Fragen?
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-            Termin vereinbaren
+            Nehmen Sie Kontakt zu uns auf!
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Wir freuen uns auf Sie! Vereinbaren Sie jetzt Ihren persönlichen Beratungstermin.
-          </p>
+        </div>
+
+        {/* Quick action buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <Button size="lg" asChild className="rounded-full px-8 py-6 text-base shadow-lg">
+            <a href="tel:+49407245241">
+              <Phone className="h-5 w-5 mr-2" />
+              Jetzt anrufen: 040 7 24 52 41
+            </a>
+          </Button>
+          <Button size="lg" variant="outline" asChild className="rounded-full px-8 py-6 text-base">
+            <a href="mailto:praxis@kieferorthopaedie-bergedorf.de">
+              <Mail className="h-5 w-5 mr-2" />
+              E-Mail schreiben
+            </a>
+          </Button>
+          <Button size="lg" variant="secondary" asChild className="rounded-full px-8 py-6 text-base">
+            <a href={DOCTOLIB_URL} target="_blank" rel="noopener noreferrer">
+              Online-Termin buchen
+            </a>
+          </Button>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-5 bg-card p-8 rounded-2xl shadow-sm border border-border">
-            <div>
-              <Label htmlFor="name">Name *</Label>
-              <Input
-                id="name"
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                required
-                maxLength={100}
-                placeholder="Ihr vollständiger Name"
-                className="mt-1.5"
-              />
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="firstName">Vorname *</Label>
+                <Input
+                  id="firstName"
+                  value={form.firstName}
+                  onChange={(e) => setForm({ ...form, firstName: e.target.value })}
+                  required
+                  maxLength={100}
+                  placeholder="Ihr Vorname"
+                  className="mt-1.5"
+                />
+              </div>
+              <div>
+                <Label htmlFor="lastName">Nachname *</Label>
+                <Input
+                  id="lastName"
+                  value={form.lastName}
+                  onChange={(e) => setForm({ ...form, lastName: e.target.value })}
+                  required
+                  maxLength={100}
+                  placeholder="Ihr Nachname"
+                  className="mt-1.5"
+                />
+              </div>
             </div>
             <div>
               <Label htmlFor="email">E-Mail *</Label>
@@ -63,16 +97,18 @@ const Contact = () => {
               />
             </div>
             <div>
-              <Label htmlFor="phone">Telefon</Label>
-              <Input
-                id="phone"
-                type="tel"
-                value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                maxLength={30}
-                placeholder="040 ..."
-                className="mt-1.5"
-              />
+              <Label htmlFor="subject">Anliegen</Label>
+              <select
+                id="subject"
+                value={form.subject}
+                onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 mt-1.5"
+              >
+                <option value="Erstberatung">Erstberatung</option>
+                <option value="Termin stornieren">Termin stornieren</option>
+                <option value="Angstpatientenbehandlung">Angstpatientenbehandlung</option>
+                <option value="Sonstiges">Sonstiges</option>
+              </select>
             </div>
             <div>
               <Label htmlFor="message">Nachricht *</Label>
@@ -100,10 +136,15 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Adresse</h4>
-                  <p className="text-muted-foreground text-sm mt-1">
-                    Bergedorfer Straße 123<br />
-                    21029 Hamburg Bergedorf
-                  </p>
+                  <a
+                    href="https://maps.app.goo.gl/C1Nj8u9JsQ2931EQ7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground text-sm mt-1 hover:text-primary transition-colors block"
+                  >
+                    Bergedorfer Schloßstraße 18<br />
+                    21029 Hamburg
+                  </a>
                 </div>
               </div>
 
@@ -113,8 +154,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Telefon</h4>
-                  <a href="tel:+4940123456789" className="text-muted-foreground text-sm mt-1 hover:text-primary transition-colors">
-                    040 123 456 789
+                  <a href="tel:+49407245241" className="text-muted-foreground text-sm mt-1 hover:text-primary transition-colors block font-medium">
+                    +49 (0) 40 7 24 52 41
                   </a>
                 </div>
               </div>
@@ -125,8 +166,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">E-Mail</h4>
-                  <a href="mailto:info@kfo-bergedorf.de" className="text-muted-foreground text-sm mt-1 hover:text-primary transition-colors">
-                    info@kfo-bergedorf.de
+                  <a href="mailto:praxis@kieferorthopaedie-bergedorf.de" className="text-muted-foreground text-sm mt-1 hover:text-primary transition-colors block">
+                    praxis@kieferorthopaedie-bergedorf.de
                   </a>
                 </div>
               </div>
@@ -137,25 +178,30 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Öffnungszeiten</h4>
-                  <div className="text-muted-foreground text-sm mt-1 space-y-0.5">
-                    <p>Mo – Do: 08:00 – 18:00 Uhr</p>
-                    <p>Fr: 08:00 – 14:00 Uhr</p>
-                    <p>Sa – So: geschlossen</p>
+                  <div className="text-muted-foreground text-sm mt-1 space-y-1">
+                    <p><span className="font-medium text-foreground/80">Mo, Di, Do:</span> 09:00 – 12:00, 13:30 – 17:00 Uhr</p>
+                    <p><span className="font-medium text-foreground/80">Mi, Fr:</span> 09:00 – 12:00 Uhr</p>
+                    <p><span className="font-medium text-foreground/80">Sa, So:</span> geschlossen</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Map placeholder */}
-            <div className="aspect-video rounded-2xl bg-muted border border-border flex items-center justify-center overflow-hidden">
+            {/* Map */}
+            <a
+              href="https://maps.app.goo.gl/C1Nj8u9JsQ2931EQ7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block aspect-video rounded-2xl bg-muted border border-border overflow-hidden hover:shadow-lg transition-shadow"
+            >
               <iframe
-                title="Standort KFO Bergedorf"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9524.46!2d10.2094!3d53.4889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1896e1b3e4f5d%3A0x4263df27bd63aa0!2sHamburg-Bergedorf!5e0!3m2!1sde!2sde!4v1700000000000"
-                className="w-full h-full rounded-2xl"
+                title="Standort Kieferorthopädie Bergedorf – Bergedorfer Schloßstraße 18"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2375.5!2d10.2094!3d53.4889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1896e1b3e4f5d%3A0x4263df27bd63aa0!2sBergedorfer+Schlo%C3%9Fstra%C3%9Fe+18%2C+21029+Hamburg!5e0!3m2!1sde!2sde!4v1700000000000"
+                className="w-full h-full rounded-2xl pointer-events-none"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-            </div>
+            </a>
           </div>
         </div>
       </div>
