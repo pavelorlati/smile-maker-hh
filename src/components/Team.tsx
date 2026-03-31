@@ -1,3 +1,5 @@
+import teamImg from "@/assets/team-doctor.jpg";
+
 const Team = () => {
   return (
     <section id="team" className="py-20 md:py-28 bg-secondary/30">
@@ -12,9 +14,14 @@ const Team = () => {
         </div>
 
         <div className="max-w-md mx-auto text-center">
-          <div className="w-36 h-36 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mb-6 shadow-lg">
-            <span className="text-3xl font-display font-bold text-primary">NA</span>
-          </div>
+          <img
+            src={teamImg}
+            alt="Dr. Negar Ajoudani – Fachzahnärztin für Kieferorthopädie"
+            width={1024}
+            height={1024}
+            loading="lazy"
+            className="w-40 h-40 mx-auto rounded-full object-cover mb-6 shadow-lg border-4 border-primary/20"
+          />
           <h3 className="text-2xl font-display font-bold text-foreground mb-2">Dr. Negar Ajoudani</h3>
           <p className="text-primary font-medium mb-4">Fachzahnärztin für Kieferorthopädie</p>
           <p className="text-muted-foreground leading-relaxed max-w-lg mx-auto">
