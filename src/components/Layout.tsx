@@ -11,7 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main className="pt-20 md:pt-24">{children}</main>
+      <main className="pt-24 md:pt-28">{children}</main>
       <Footer />
       <FloatingPhone />
     </div>
