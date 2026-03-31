@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.svg";
 
 const navLinks = [
   { label: "Leistungen", href: "#leistungen" },
@@ -18,9 +19,8 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4">
-        <a href="/" className="flex flex-col">
-          <span className="text-xl font-display font-bold text-primary leading-tight">Dr. Negar Ajoudani</span>
-          <span className="text-[11px] font-body text-muted-foreground tracking-wide">Kieferorthopädie Bergedorf</span>
+        <a href="/" className="flex-shrink-0">
+          <img src={logo} alt="Dr. Negar Ajoudani – Kieferorthopädie Bergedorf" className="h-12 md:h-14 w-auto" />
         </a>
 
         <nav className="hidden lg:flex items-center gap-8">
