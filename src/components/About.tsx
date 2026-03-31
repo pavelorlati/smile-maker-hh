@@ -1,4 +1,5 @@
 import { Award, Heart, Clock } from "lucide-react";
+import aboutImg from "@/assets/about-practice.jpg";
 
 const values = [
   { icon: Award, label: "Erfahrene Fachärztin" },
