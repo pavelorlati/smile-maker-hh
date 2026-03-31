@@ -48,9 +48,14 @@ const About = () => {
           </div>
 
           <div className="relative">
-            <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center border border-border">
-              <p className="text-muted-foreground text-sm">Praxisbild Platzhalter</p>
-            </div>
+            <img
+              src={aboutImg}
+              alt="Moderne Behandlungsräume der Kieferorthopädie Bergedorf"
+              width={1920}
+              height={1440}
+              loading="lazy"
+              className="aspect-[4/3] rounded-2xl object-cover w-full shadow-lg"
+            />
             <div className="absolute -bottom-6 -left-6 w-32 h-32 rounded-2xl bg-accent/20 -z-10 blur-xl" />
           </div>
         </div>
