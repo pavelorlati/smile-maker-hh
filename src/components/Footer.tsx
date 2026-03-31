@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
+import logo from "@/assets/logo.svg";
 
 const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopaedie-ajoudani-negar?utm_campaign=website-button&utm_source=kieferorthopaedie-ajoudani-negar-website-button&utm_medium=referral&utm_content=option-8&utm_term=kieferorthopaedie-ajoudani-negar";
 
@@ -9,9 +10,8 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
-            <span className="text-xl font-display font-bold text-background">Dr. Negar Ajoudani</span>
-            <p className="text-sm mt-1 text-background/50">Fachzahnärztin für Kieferorthopädie</p>
-            <p className="text-sm mt-4 leading-relaxed text-background/60">
+            <img src={logo} alt="Dr. Negar Ajoudani" className="h-14 w-auto mb-4 brightness-0 invert opacity-80" />
+            <p className="text-sm leading-relaxed text-background/60">
               Moderne Kieferorthopädie für die ganze Familie in Hamburg-Bergedorf.
             </p>
           </div>
@@ -39,11 +39,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-background mb-4">Schnellzugriff</h4>
             <div className="space-y-2 text-sm">
-              <a href="#leistungen" className="block hover:text-background transition-colors">Leistungen</a>
-              <a href="#ueber-uns" className="block hover:text-background transition-colors">Über uns</a>
-              <a href="#team" className="block hover:text-background transition-colors">Team</a>
-              <a href="#bewertungen" className="block hover:text-background transition-colors">Patientenstimmen</a>
-              <a href="#kontakt" className="block hover:text-background transition-colors">Kontakt</a>
+              <Link to="/leistungen" className="block hover:text-background transition-colors">Leistungen</Link>
+              <Link to="/ueber-uns" className="block hover:text-background transition-colors">Über uns</Link>
+              <Link to="/team" className="block hover:text-background transition-colors">Team</Link>
+              <Link to="/bewertungen" className="block hover:text-background transition-colors">Bewertungen</Link>
+              <Link to="/kontakt" className="block hover:text-background transition-colors">Kontakt</Link>
               <a href={DOCTOLIB_URL} target="_blank" rel="noopener noreferrer" className="block hover:text-background transition-colors">Online-Termin buchen</a>
               <a href="https://maps.app.goo.gl/FjZQWMJLnDC7KxXg8" target="_blank" rel="noopener noreferrer" className="block hover:text-background transition-colors">Anfahrt</a>
             </div>
