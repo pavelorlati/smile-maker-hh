@@ -1,3 +1,5 @@
+import teamImg from "@/assets/team-doctor.jpg";
+
 const Team = () => {
   return (
     <section id="team" className="py-20 md:py-28 bg-secondary/30">
