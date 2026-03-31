@@ -80,11 +80,16 @@ export default {
           from: { opacity: "0", transform: "translateY(20px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        "phone-glow": {
+          "0%, 100%": { boxShadow: "0 0 8px 2px hsl(var(--primary) / 0.4)" },
+          "50%": { boxShadow: "0 0 24px 8px hsl(var(--primary) / 0.7)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.6s ease-out forwards",
+        "phone-glow": "phone-glow 2s ease-in-out infinite",
       },
     },
   },
