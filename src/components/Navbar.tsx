@@ -18,9 +18,9 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4">
+      <div className="container mx-auto flex items-center justify-between h-20 md:h-24 px-4">
         <a href="/" className="flex-shrink-0">
-          <img src={logo} alt="Dr. Negar Ajoudani – Kieferorthopädie Bergedorf" className="h-12 md:h-14 w-auto" />
+          <img src={logo} alt="Dr. Negar Ajoudani – Kieferorthopädie Bergedorf" className="h-16 md:h-20 w-auto" />
         </a>
 
         <nav className="hidden lg:flex items-center gap-8">
