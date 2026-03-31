@@ -1,6 +1,4 @@
-import { Star, ExternalLink } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Star, ExternalLink, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -45,52 +43,60 @@ const GOOGLE_REVIEWS_URL = "https://www.google.com/maps/place/Praxis+Dr.+Negar+A
 
 const Testimonials = () => {
   return (
-    <section className="py-20 md:py-28">
-      <div className="container mx-auto px-4">
+    <section className="py-20 md:py-28 relative overflow-hidden">
+      <div className="absolute top-1/2 right-0 w-96 h-96 rounded-full bg-primary/5 blur-[120px]" />
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <p className="text-sm font-medium tracking-widest uppercase text-primary mb-3">
-            Patientenstimmen
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-            Was unsere Patienten über uns sagen
+          <span className="cta-badge mb-4">Patientenstimmen</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4 mt-4">
+            Was unsere Patienten sagen
           </h2>
-          <div className="flex items-center justify-center gap-2 mt-4">
+          <div className="flex items-center justify-center gap-3 mt-6">
             <div className="flex gap-0.5">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-accent text-accent" />
+                <Star key={i} className="h-6 w-6 fill-amber-400 text-amber-400" />
               ))}
             </div>
-            <span className="text-sm text-muted-foreground font-medium">5.0 Sterne auf Google</span>
+            <span className="text-lg font-bold text-foreground">5.0</span>
+            <span className="text-sm text-muted-foreground">auf Google</span>
           </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {testimonials.map((t, i) => (
-            <Card key={i} className="border-none shadow-md hover:shadow-xl transition-shadow bg-card">
-              <CardContent className="p-8">
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.stars }).map((_, j) => (
-                    <Star key={j} className="h-5 w-5 fill-accent text-accent" />
-                  ))}
+            <div key={i} className="glass-card rounded-2xl p-7 hover:-translate-y-2 hover:shadow-[var(--shadow-card-hover)] transition-all duration-500 group relative">
+              <Quote className="absolute top-6 right-6 h-8 w-8 text-primary/10 group-hover:text-primary/20 transition-colors" />
+              <div className="flex gap-0.5 mb-4">
+                {Array.from({ length: t.stars }).map((_, j) => (
+                  <Star key={j} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                ))}
+              </div>
+              <h4 className="font-display font-semibold text-foreground mb-2 text-sm">{t.title}</h4>
+              <p className="text-muted-foreground leading-relaxed mb-5 text-sm">"{t.text}"</p>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white text-xs font-bold">
+                  {t.name.charAt(0)}
                 </div>
-                <h4 className="font-display font-semibold text-foreground mb-3">{t.title}</h4>
-                <p className="text-foreground/80 leading-relaxed mb-6 text-sm italic">"{t.text}"</p>
                 <div>
-                  <p className="font-semibold text-foreground">{t.name}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">über Google Rezensionen</p>
+                  <p className="font-semibold text-foreground text-sm">{t.name}</p>
+                  <p className="text-[11px] text-muted-foreground">Google Rezension</p>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="outline" asChild className="rounded-full px-8">
-            <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="h-4 w-4 mr-2" />
-              Alle Google Bewertungen ansehen
-            </a>
-          </Button>
+          <a
+            href={GOOGLE_REVIEWS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
+          >
+            <ExternalLink className="h-4 w-4" />
+            Alle Google Bewertungen ansehen
+          </a>
         </div>
       </div>
     </section>
