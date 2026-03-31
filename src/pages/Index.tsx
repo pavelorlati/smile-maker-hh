@@ -1,27 +1,13 @@
-import Navbar from "@/components/Navbar";
+import Layout from "@/components/Layout";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import About from "@/components/About";
-import Team from "@/components/Team";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import FloatingPhone from "@/components/FloatingPhone";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Navbar />
-      <Hero />
-      <Services />
-      <About />
-      <Team />
-      <Testimonials />
-      <FAQ />
-      <Contact />
-      <Footer />
-      <FloatingPhone />
+      {/* Hero has its own full-height layout, so we don't use Layout wrapper for it */}
+      <Layout>
+        <div /> {/* spacer since Hero is positioned absolutely */}
+      </Layout>
     </div>
   );
 };

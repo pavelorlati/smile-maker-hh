@@ -17,23 +17,28 @@ const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopa
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-20 md:h-24 px-4">
-        <a href="/" className="flex-shrink-0">
+        <Link to="/" className="flex-shrink-0">
           <img src={logo} alt="Dr. Negar Ajoudani – Kieferorthopädie Bergedorf" className="h-16 md:h-20 w-auto" />
-        </a>
+        </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+              to={link.href}
+              className={`text-sm font-medium transition-colors ${
+                location.pathname === link.href
+                  ? "text-primary font-semibold"
+                  : "text-foreground/80 hover:text-primary"
+              }`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -65,14 +70,18 @@ const Navbar = () => {
         <div className="lg:hidden bg-background border-b border-border">
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
-                className="text-base font-medium text-foreground/80 hover:text-primary transition-colors py-2"
+                to={link.href}
+                className={`text-base font-medium transition-colors py-2 ${
+                  location.pathname === link.href
+                    ? "text-primary font-semibold"
+                    : "text-foreground/80 hover:text-primary"
+                }`}
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <a href="tel:+49407245241" className="flex items-center gap-2 text-sm font-semibold text-primary py-2">
               <Phone className="h-4 w-4" />
