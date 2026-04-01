@@ -75,6 +75,7 @@ const Index = () => {
       <CTABanner />
       <Footer />
       <FloatingPhone />
+      <AccessibilityInfo />
     </div>
   );
 };
