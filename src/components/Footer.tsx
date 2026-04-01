@@ -33,6 +33,10 @@ const Footer = () => {
                 <Mail className="h-4 w-4 flex-shrink-0" />
                 <a href="mailto:praxis@kieferorthopaedie-bergedorf.de" className="hover:text-background transition-colors">praxis@kieferorthopaedie-bergedorf.de</a>
               </div>
+              <div className="flex items-center gap-2">
+                <Instagram className="h-4 w-4 flex-shrink-0" />
+                <a href="https://www.instagram.com/kieferorthopaedie.bergedorf" target="_blank" rel="noopener noreferrer" className="hover:text-background transition-colors">@kieferorthopaedie.bergedorf</a>
+              </div>
             </div>
           </div>
 
