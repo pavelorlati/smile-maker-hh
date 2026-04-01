@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import FloatingPhone from "@/components/FloatingPhone";
+import AccessibilityInfo from "@/components/AccessibilityInfo";
 import CTABanner from "@/components/CTABanner";
 import { Link } from "react-router-dom";
 import { ArrowRight, Stethoscope, Users, Heart, Star } from "lucide-react";
@@ -74,6 +75,7 @@ const Index = () => {
       <CTABanner />
       <Footer />
       <FloatingPhone />
+      <AccessibilityInfo />
     </div>
   );
 };
