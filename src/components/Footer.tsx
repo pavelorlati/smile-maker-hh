@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram } from "lucide-react";
 import logo from "@/assets/logo.svg";
 
 const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopaedie-ajoudani-negar?utm_campaign=website-button&utm_source=kieferorthopaedie-ajoudani-negar-website-button&utm_medium=referral&utm_content=option-8&utm_term=kieferorthopaedie-ajoudani-negar";
@@ -32,6 +32,10 @@ const Footer = () => {
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 flex-shrink-0" />
                 <a href="mailto:praxis@kieferorthopaedie-bergedorf.de" className="hover:text-background transition-colors">praxis@kieferorthopaedie-bergedorf.de</a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Instagram className="h-4 w-4 flex-shrink-0" />
+                <a href="https://www.instagram.com/kieferorthopaedie.bergedorf" target="_blank" rel="noopener noreferrer" className="hover:text-background transition-colors">@kieferorthopaedie.bergedorf</a>
               </div>
             </div>
           </div>
