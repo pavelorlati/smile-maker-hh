@@ -112,7 +112,7 @@ export default {
         "fade-in-left": "fade-in-left 0.6s ease-out forwards",
         "fade-in-right": "fade-in-right 0.6s ease-out forwards",
         "scale-in": "scale-in 0.5s ease-out forwards",
-        "phone-glow": "phone-glow 2s ease-in-out infinite",
+        "phone-glow": "phone-glow 3s ease-in-out infinite",
         "float": "float 3s ease-in-out infinite",
         "shimmer": "shimmer 2s linear infinite",
       },
