@@ -93,8 +93,8 @@ export default {
           to: { opacity: "1", transform: "scale(1)" },
         },
         "phone-glow": {
-          "0%, 100%": { boxShadow: "0 0 10px 3px hsl(var(--primary) / 0.3)", transform: "scale(1)" },
-          "50%": { boxShadow: "0 0 24px 8px hsl(var(--primary) / 0.5)", transform: "scale(1.08)" },
+          "0%, 100%": { boxShadow: "0 0 8px 2px hsl(var(--primary) / 0.22)", transform: "scale(1)" },
+          "50%": { boxShadow: "0 0 16px 5px hsl(var(--primary) / 0.36)", transform: "scale(1.035)" },
         },
         "float": {
           "0%, 100%": { transform: "translateY(0)" },
@@ -112,7 +112,7 @@ export default {
         "fade-in-left": "fade-in-left 0.6s ease-out forwards",
         "fade-in-right": "fade-in-right 0.6s ease-out forwards",
         "scale-in": "scale-in 0.5s ease-out forwards",
-        "phone-glow": "phone-glow 3s ease-in-out infinite",
+        "phone-glow": "phone-glow 5.5s ease-in-out infinite",
         "float": "float 3s ease-in-out infinite",
         "shimmer": "shimmer 2s linear infinite",
       },
