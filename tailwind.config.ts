@@ -93,8 +93,8 @@ export default {
           to: { opacity: "1", transform: "scale(1)" },
         },
         "phone-glow": {
-          "0%, 100%": { boxShadow: "0 0 8px 2px hsl(var(--primary) / 0.4)" },
-          "50%": { boxShadow: "0 0 28px 10px hsl(var(--primary) / 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 10px 3px hsl(var(--primary) / 0.3)", transform: "scale(1)" },
+          "50%": { boxShadow: "0 0 24px 8px hsl(var(--primary) / 0.5)", transform: "scale(1.08)" },
         },
         "float": {
           "0%, 100%": { transform: "translateY(0)" },
