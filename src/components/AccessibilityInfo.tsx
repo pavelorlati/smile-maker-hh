@@ -11,7 +11,7 @@ const AccessibilityInfo = () => {
         <div className="fixed inset-0 bg-black/30 z-40 md:hidden" onClick={() => setOpen(false)} />
       )}
 
-      <div className="fixed left-4 bottom-24 z-50 flex flex-col-reverse sm:flex-row items-start sm:items-end gap-3">
+      <div className="fixed left-4 bottom-6 z-50 flex flex-col-reverse sm:flex-row items-start sm:items-end gap-3">
         <button
           onClick={() => setOpen(!open)}
           aria-label="Barrierefreiheit"
