@@ -6,7 +6,6 @@ const AccessibilityInfo = () => {
 
   return (
     <>
-      {/* Overlay for mobile when open */}
       {open && (
         <div className="fixed inset-0 bg-black/30 z-40 md:hidden" onClick={() => setOpen(false)} />
       )}
@@ -21,7 +20,7 @@ const AccessibilityInfo = () => {
         </button>
 
         {open && (
-          <div className="glass-card rounded-2xl p-4 sm:p-5 shadow-xl animate-fade-in w-[calc(100vw-2rem)] sm:w-auto sm:max-w-xs left-0">
+          <div className="bg-card border border-border rounded-lg p-4 sm:p-5 shadow-md animate-fade-in w-[calc(100vw-2rem)] sm:w-auto sm:max-w-xs left-0">
             <h3 className="font-display font-bold text-foreground mb-2 text-sm">♿ Barrierefreier Zugang</h3>
             <p className="text-xs text-muted-foreground leading-relaxed">
               Unser Treppenhaus ist mit einem Fahrstuhl ausgestattet. Menschen mit Behinderung oder eingeschränkter Mobilität können unsere Praxis problemlos erreichen. Wir freuen uns auf Ihren Besuch!
