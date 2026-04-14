@@ -23,7 +23,7 @@ const Team = () => {
               width={1024}
               height={1024}
               loading="lazy"
-              className="w-48 h-48 rounded-full object-cover object-top mx-auto mb-6"
+              className="w-56 h-56 rounded-full object-cover object-top mx-auto mb-6"
             />
             <h3 className="text-2xl font-display font-bold text-foreground mb-1">Dr. Negar Ajoudani</h3>
             <p className="text-primary font-semibold mb-5">Fachzahnärztin für Kieferorthopädie</p>
