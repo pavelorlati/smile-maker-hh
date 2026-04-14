@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { MapPin, Phone, Mail, Clock, Send, ArrowRight, CalendarCheck } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -22,7 +21,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 glass-card p-8 rounded-2xl">
+    <form onSubmit={handleSubmit} className="bg-card border border-border rounded-lg p-7 space-y-5">
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <Label htmlFor="firstName">Vorname *</Label>
@@ -50,7 +49,7 @@ const ContactForm = () => {
         <Label htmlFor="message">Nachricht *</Label>
         <Textarea id="message" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required maxLength={1000} placeholder="Wie können wir Ihnen helfen?" className="mt-1.5 min-h-[120px]" />
       </div>
-      <button type="submit" className="btn-gradient w-full inline-flex items-center justify-center gap-2 py-4 rounded-full text-base group">
+      <button type="submit" className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-md text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors group">
         <Send className="h-4 w-4" />
         Nachricht senden
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -79,54 +78,48 @@ const contactInfo = [
 
 const Contact = () => {
   return (
-    <section className="py-20 md:py-28 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-primary/5 blur-[100px]" />
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="py-16 md:py-24">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <span className="cta-badge mb-4">Kontakt</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4 mt-4">
+          <span className="section-badge mb-3">Kontakt</span>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3 mt-3">
             Wir freuen uns auf Sie
           </h2>
-          <div className="section-divider mt-6" />
+          <div className="section-divider mt-4" />
         </div>
 
-        {/* Quick action cards */}
-        <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto mb-14">
-          <a href="tel:+49407245241" className="glass-card rounded-2xl p-6 text-center hover:-translate-y-2 hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 group">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
-              <Phone className="h-6 w-6 text-primary" />
+        <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto mb-12">
+          <a href="tel:+49407245241" className="bg-card border border-border rounded-lg p-5 text-center hover:shadow-md transition-shadow duration-200">
+            <div className="w-11 h-11 rounded-lg bg-primary/8 flex items-center justify-center mx-auto mb-3">
+              <Phone className="h-5 w-5 text-primary" />
             </div>
             <span className="text-sm font-bold text-foreground block">Anrufen</span>
             <span className="text-xs text-muted-foreground">040 7 24 52 41</span>
           </a>
-          <a href="mailto:praxis@kieferorthopaedie-bergedorf.de" className="glass-card rounded-2xl p-6 text-center hover:-translate-y-2 hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 group">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
-              <Mail className="h-6 w-6 text-primary" />
+          <a href="mailto:praxis@kieferorthopaedie-bergedorf.de" className="bg-card border border-border rounded-lg p-5 text-center hover:shadow-md transition-shadow duration-200">
+            <div className="w-11 h-11 rounded-lg bg-primary/8 flex items-center justify-center mx-auto mb-3">
+              <Mail className="h-5 w-5 text-primary" />
             </div>
             <span className="text-sm font-bold text-foreground block">E-Mail</span>
             <span className="text-xs text-muted-foreground">Schreiben Sie uns</span>
           </a>
-          <a href={DOCTOLIB_URL} target="_blank" rel="noopener noreferrer" className="relative rounded-2xl p-6 text-center hover:-translate-y-2 transition-all duration-300 group overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-90" />
-            <div className="relative z-10">
-              <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mx-auto mb-3">
-                <CalendarCheck className="h-6 w-6 text-white" />
-              </div>
-              <span className="text-sm font-bold text-white block">Online buchen</span>
-              <span className="text-xs text-white/70">24/7 über Doctolib</span>
+          <a href={DOCTOLIB_URL} target="_blank" rel="noopener noreferrer" className="bg-primary rounded-lg p-5 text-center hover:bg-primary/90 transition-colors duration-200">
+            <div className="w-11 h-11 rounded-lg bg-primary-foreground/15 flex items-center justify-center mx-auto mb-3">
+              <CalendarCheck className="h-5 w-5 text-primary-foreground" />
             </div>
+            <span className="text-sm font-bold text-primary-foreground block">Online buchen</span>
+            <span className="text-xs text-primary-foreground/70">24/7 über Doctolib</span>
           </a>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
           <ContactForm />
 
-          <div className="space-y-8">
-            <div className="space-y-5">
+          <div className="space-y-6">
+            <div className="space-y-4">
               {contactInfo.map((item) => (
-                <div key={item.title} className="flex items-start gap-4 glass-card rounded-xl p-4">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <div key={item.title} className="flex items-start gap-4 bg-card border border-border rounded-lg p-4">
+                  <div className="w-10 h-10 rounded-lg bg-primary/8 flex items-center justify-center flex-shrink-0">
                     <item.icon className="h-5 w-5 text-primary" />
                   </div>
                   <div>
@@ -136,8 +129,8 @@ const Contact = () => {
                 </div>
               ))}
 
-              <div className="flex items-start gap-4 glass-card rounded-xl p-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <div className="flex items-start gap-4 bg-card border border-border rounded-lg p-4">
+                <div className="w-10 h-10 rounded-lg bg-primary/8 flex items-center justify-center flex-shrink-0">
                   <Clock className="h-5 w-5 text-primary" />
                 </div>
                 <div>
@@ -155,12 +148,12 @@ const Contact = () => {
               href="https://maps.app.goo.gl/C1Nj8u9JsQ2931EQ7"
               target="_blank"
               rel="noopener noreferrer"
-              className="block aspect-video rounded-2xl bg-muted border border-border overflow-hidden hover:shadow-lg transition-shadow"
+              className="block aspect-video rounded-lg bg-muted border border-border overflow-hidden hover:shadow-md transition-shadow"
             >
               <iframe
                 title="Standort Kieferorthopädie Bergedorf – Bergedorfer Schloßstraße 18"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2375.5!2d10.2094!3d53.4889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b1896e1b3e4f5d%3A0x4263df27bd63aa0!2sBergedorfer+Schlo%C3%9Fstra%C3%9Fe+18%2C+21029+Hamburg!5e0!3m2!1sde!2sde!4v1700000000000"
-                className="w-full h-full rounded-2xl pointer-events-none"
+                className="w-full h-full rounded-lg pointer-events-none"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

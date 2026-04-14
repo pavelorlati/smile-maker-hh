@@ -13,8 +13,8 @@ const services = [
       "Bitte rufen Sie immer vorher kurz an – so können wir schnell reagieren",
       "Wachs aus dem Startset hilft gegen Reibung bis zum Praxisbesuch",
     ],
-    color: "from-red-500/10 to-orange-500/10",
-    iconColor: "text-red-500",
+    iconColor: "text-destructive",
+    iconBg: "bg-destructive/8",
   },
   {
     icon: Users,
@@ -25,8 +25,8 @@ const services = [
       "Herausnehmbare Spangen, Keramikbrackets oder transparente Aligner",
       "Auch Erwachsene profitieren – moderne Methoden sind diskret und komfortabel",
     ],
-    color: "from-primary/10 to-primary/5",
     iconColor: "text-primary",
+    iconBg: "bg-primary/8",
   },
   {
     icon: Heart,
@@ -37,8 +37,8 @@ const services = [
       "Auf Wunsch planen wir besonders ruhige Termine ein",
       "Teilen Sie uns Ihre Ängste bei der Terminvereinbarung mit",
     ],
-    color: "from-pink-500/10 to-rose-500/10",
-    iconColor: "text-pink-500",
+    iconColor: "text-primary",
+    iconBg: "bg-primary/8",
   },
   {
     icon: Sparkles,
@@ -49,89 +49,79 @@ const services = [
       "Herausnehmbar zum Essen und Zähneputzen",
       "Digitale 3D-Planung für präzise Ergebnisse",
     ],
-    color: "from-accent/10 to-accent/5",
     iconColor: "text-accent",
+    iconBg: "bg-accent/8",
   },
 ];
 
 const Services = () => {
   return (
-    <section className="py-20 md:py-28 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-primary/5 blur-[100px]" />
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <span className="cta-badge mb-4">Unsere Leistungen</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
+    <section className="py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-14">
+          <span className="section-badge mb-3">Unsere Leistungen</span>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3 mt-3">
             Was wir für Sie tun können
           </h2>
-          <div className="section-divider mt-6" />
+          <div className="section-divider mt-4" />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
-          {services.map((s, i) => (
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {services.map((s) => (
             <Card
               key={s.title}
-              className="group border-none shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-500 bg-card hover:-translate-y-2 rounded-2xl overflow-hidden"
+              className="border border-border shadow-sm hover:shadow-md transition-shadow duration-200 rounded-lg"
             >
-              <CardContent className="p-8 relative">
-                <div className={`absolute top-0 right-0 w-32 h-32 rounded-bl-full bg-gradient-to-br ${s.color} opacity-60`} />
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${s.color} flex items-center justify-center mb-5 relative z-10`}>
-                  <s.icon className={`h-7 w-7 ${s.iconColor}`} />
+              <CardContent className="p-7">
+                <div className={`w-12 h-12 rounded-lg ${s.iconBg} flex items-center justify-center mb-4`}>
+                  <s.icon className={`h-6 w-6 ${s.iconColor}`} />
                 </div>
-                <h3 className="text-xl font-display font-semibold text-foreground mb-3 relative z-10">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4 relative z-10">{s.desc}</p>
+                <h3 className="text-xl font-display font-semibold text-foreground mb-3">{s.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{s.desc}</p>
 
-                {s.details.length > 0 && (
-                  <ul className="space-y-2 mb-6 relative z-10">
-                    {s.details.map((d, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
-                        {d}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                <ul className="space-y-2 mb-6">
+                  {s.details.map((d, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                      {d}
+                    </li>
+                  ))}
+                </ul>
 
                 <a
                   href={DOCTOLIB_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all duration-300 relative z-10 group/link"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all duration-200"
                 >
                   Termin vereinbaren
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+                  <ArrowRight className="h-4 w-4" />
                 </a>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* Booking CTA card */}
-        <div className="mt-12 max-w-5xl mx-auto">
-          <div className="relative rounded-3xl overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary to-accent" />
-            <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-white/5 blur-[60px]" />
-            <div className="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="flex items-center gap-5">
-                <div className="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center flex-shrink-0">
-                  <CalendarCheck className="h-8 w-8 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl md:text-2xl font-display font-bold text-white">Online-Terminbuchung</h3>
-                  <p className="text-white/70 text-sm mt-1">Rund um die Uhr · schnell & unkompliziert über Doctolib</p>
-                </div>
+        <div className="mt-10 max-w-5xl mx-auto">
+          <div className="bg-primary rounded-lg p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-5">
+              <div className="w-14 h-14 rounded-lg bg-primary-foreground/15 flex items-center justify-center flex-shrink-0">
+                <CalendarCheck className="h-7 w-7 text-primary-foreground" />
               </div>
-              <a
-                href={DOCTOLIB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold bg-white text-primary shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group flex-shrink-0"
-              >
-                Jetzt online buchen
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              <div>
+                <h3 className="text-xl md:text-2xl font-display font-bold text-primary-foreground">Online-Terminbuchung</h3>
+                <p className="text-primary-foreground/70 text-sm mt-1">Rund um die Uhr · schnell & unkompliziert über Doctolib</p>
+              </div>
             </div>
+            <a
+              href={DOCTOLIB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md text-base font-bold bg-primary-foreground text-primary hover:bg-primary-foreground/90 transition-colors group flex-shrink-0"
+            >
+              Jetzt online buchen
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </a>
           </div>
         </div>
       </div>

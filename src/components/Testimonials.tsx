@@ -43,19 +43,17 @@ const GOOGLE_REVIEWS_URL = "https://www.google.com/maps/place/Praxis+Dr.+Negar+A
 
 const Testimonials = () => {
   return (
-    <section className="py-20 md:py-28 relative overflow-hidden">
-      <div className="absolute top-1/2 right-0 w-96 h-96 rounded-full bg-primary/5 blur-[120px]" />
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <span className="cta-badge mb-4">Patientenstimmen</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4 mt-4">
+    <section className="py-16 md:py-24 bg-secondary">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-14">
+          <span className="section-badge mb-3">Patientenstimmen</span>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-3 mt-3">
             Was unsere Patienten sagen
           </h2>
-          <div className="flex items-center justify-center gap-3 mt-6">
+          <div className="flex items-center justify-center gap-3 mt-4">
             <div className="flex gap-0.5">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-6 w-6 fill-amber-400 text-amber-400" />
+                <Star key={i} className="h-5 w-5 fill-amber-400 text-amber-400" />
               ))}
             </div>
             <span className="text-lg font-bold text-foreground">5.0</span>
@@ -63,11 +61,11 @@ const Testimonials = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
           {testimonials.map((t, i) => (
-            <div key={i} className="glass-card rounded-2xl p-7 hover:-translate-y-2 hover:shadow-[var(--shadow-card-hover)] transition-all duration-500 group relative">
-              <Quote className="absolute top-6 right-6 h-8 w-8 text-primary/10 group-hover:text-primary/20 transition-colors" />
-              <div className="flex gap-0.5 mb-4">
+            <div key={i} className="bg-card border border-border rounded-lg p-6 hover:shadow-md transition-shadow duration-200 relative">
+              <Quote className="absolute top-5 right-5 h-7 w-7 text-muted/40" />
+              <div className="flex gap-0.5 mb-3">
                 {Array.from({ length: t.stars }).map((_, j) => (
                   <Star key={j} className="h-4 w-4 fill-amber-400 text-amber-400" />
                 ))}
@@ -75,7 +73,7 @@ const Testimonials = () => {
               <h4 className="font-display font-semibold text-foreground mb-2 text-sm">{t.title}</h4>
               <p className="text-muted-foreground leading-relaxed mb-5 text-sm">"{t.text}"</p>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white text-xs font-bold">
+                <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-xs font-bold">
                   {t.name.charAt(0)}
                 </div>
                 <div>
@@ -87,7 +85,7 @@ const Testimonials = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-10">
           <a
             href={GOOGLE_REVIEWS_URL}
             target="_blank"
