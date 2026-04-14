@@ -40,15 +40,14 @@ const Index = () => {
       <Navbar />
       <Hero />
 
-      {/* Quick navigation cards */}
-      <section className="py-20 md:py-28 relative">
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-14">
-            <span className="cta-badge mb-4">Willkommen</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mt-4 mb-4">
-              Entdecken Sie unsere <span className="gradient-text">Praxis</span>
+          <div className="text-center mb-12">
+            <span className="section-badge mb-3">Willkommen</span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mt-3 mb-3">
+              Entdecken Sie unsere Praxis
             </h2>
-            <div className="section-divider mt-6" />
+            <div className="section-divider mt-4" />
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
@@ -56,10 +55,10 @@ const Index = () => {
               <Link
                 key={item.href}
                 to={item.href}
-                className="glass-card rounded-2xl p-6 hover:-translate-y-2 hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 group"
+                className="bg-card border border-border rounded-lg p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <item.icon className="h-6 w-6 text-primary" />
+                <div className="w-11 h-11 rounded-lg bg-primary/8 flex items-center justify-center mb-4">
+                  <item.icon className="h-5 w-5 text-primary" />
                 </div>
                 <h3 className="font-display font-bold text-foreground mb-1">{item.title}</h3>
                 <p className="text-xs text-muted-foreground mb-4">{item.desc}</p>

@@ -21,16 +21,13 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section className="py-20 md:py-28 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-accent/5 blur-[100px]" />
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-start max-w-5xl mx-auto">
+    <section className="py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
           <div className="lg:sticky lg:top-32">
-            <span className="cta-badge mb-4">FAQ</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4 mt-4">
-              Häufig gestellte{" "}
-              <span className="gradient-text">Fragen</span>
+            <span className="section-badge mb-3">FAQ</span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4 mt-3">
+              Häufig gestellte Fragen
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
               Hier finden Sie Antworten auf die häufigsten Fragen unserer Patienten. 
@@ -40,7 +37,7 @@ const FAQ = () => {
               href={DOCTOLIB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gradient inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm group"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors group"
             >
               Beratungstermin buchen
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -49,7 +46,7 @@ const FAQ = () => {
 
           <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} className="glass-card rounded-xl px-6 border-none">
+              <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border rounded-lg px-5">
                 <AccordionTrigger className="text-left text-sm font-medium hover:no-underline hover:text-primary transition-colors">
                   {faq.q}
                 </AccordionTrigger>

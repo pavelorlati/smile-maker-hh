@@ -11,16 +11,13 @@ const values = [
 
 const About = () => {
   return (
-    <section className="py-20 md:py-28 relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-primary/5 blur-[100px]" />
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="cta-badge mb-4">Über uns</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6 mt-4">
-              Kieferorthopädie{" "}
-              <span className="gradient-text">mit Herz</span>
+            <span className="section-badge mb-3">Über uns</span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6 mt-3">
+              Kieferorthopädie mit Herz
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-5">
               Herzlich willkommen in unserer Praxis für moderne Kieferorthopädie in Hamburg-Bergedorf. 
@@ -37,10 +34,10 @@ const About = () => {
               wie möglich – auch für Angstpatienten.
             </p>
 
-            <div className="grid grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-3 gap-3 mb-8">
               {values.map((v) => (
-                <div key={v.label} className="glass-card rounded-xl p-4 text-center hover:-translate-y-1 transition-transform duration-300">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-2">
+                <div key={v.label} className="bg-secondary rounded-lg p-4 text-center">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-2">
                     <v.icon className="h-5 w-5 text-primary" />
                   </div>
                   <span className="text-xs font-semibold text-foreground block">{v.label}</span>
@@ -53,7 +50,7 @@ const About = () => {
               href={DOCTOLIB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gradient inline-flex items-center gap-2 px-8 py-4 rounded-full text-base group"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors group"
             >
               Beratungstermin vereinbaren
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -61,18 +58,16 @@ const About = () => {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent/10 rounded-3xl blur-2xl" />
             <img
               src={aboutImg}
               alt="Moderne Behandlungsräume der Kieferorthopädie Bergedorf"
               width={1920}
               height={1440}
               loading="lazy"
-              className="relative aspect-[4/3] rounded-2xl object-cover w-full shadow-2xl"
+              className="aspect-[4/3] rounded-lg object-cover w-full shadow-lg"
             />
-            {/* Stats overlay */}
-            <div className="absolute -bottom-6 -right-6 md:bottom-6 md:right-6 glass-card rounded-2xl p-5 animate-float">
-              <div className="text-3xl font-display font-bold gradient-text">5.0</div>
+            <div className="absolute bottom-4 right-4 bg-card border border-border rounded-lg p-4 shadow-md">
+              <div className="text-3xl font-display font-bold text-primary">5.0</div>
               <div className="text-xs text-muted-foreground font-medium">Google Bewertung</div>
             </div>
           </div>
