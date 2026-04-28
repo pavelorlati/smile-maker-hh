@@ -5,7 +5,7 @@ import FloatingPhone from "@/components/FloatingPhone";
 import AccessibilityInfo from "@/components/AccessibilityInfo";
 import CTABanner from "@/components/CTABanner";
 import { Link } from "react-router-dom";
-import { ArrowRight, Stethoscope, Users, Heart, Star } from "lucide-react";
+import { ArrowRight, Stethoscope, Users, Heart } from "lucide-react";
 
 const highlights = [
   {
@@ -25,12 +25,6 @@ const highlights = [
     title: "Unser Team",
     desc: "Dr. Negar Ajoudani & Team",
     href: "/team",
-  },
-  {
-    icon: Star,
-    title: "Bewertungen",
-    desc: "5.0 Sterne auf Google",
-    href: "/bewertungen",
   },
 ];
 
