@@ -13,7 +13,7 @@ const Hero = () => {
         height={1080}
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-foreground/75" />
+      <div className="absolute inset-0 bg-foreground/60" />
 
       <div className="container mx-auto px-4 pt-28 pb-20 relative z-10">
         <div className="max-w-2xl">
