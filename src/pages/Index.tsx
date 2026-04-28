@@ -70,7 +70,9 @@ const Index = () => {
         heading="Ihre Kieferorthopädie in Hamburg Bergedorf"
         paragraphs={[
           "Die Praxis Dr. Negar Ajoudani ist Ihre Anlaufstelle für moderne Kieferorthopädie in Hamburg Bergedorf. Als Fachzahnärztin behandelt Dr. Ajoudani Kinder, Jugendliche und Erwachsene mit aktuellen Methoden – von der klassischen festsitzenden Zahnspange über transparente Aligner bis hin zur Frühbehandlung. Unsere Praxis liegt zentral in der Bergedorfer Schloßstraße und ist mit öffentlichen Verkehrsmitteln sowie dem Auto bequem zu erreichen.",
-          "Ein gerades Lächeln ist mehr als Ästhetik: Eine korrekte Zahnstellung erleichtert die tägliche Mundhygiene, schützt vor Karies und Parodontitis und sorgt für ein gesundes Kiefergelenk. In einem persönlichen Beratungsgespräch nehmen wir uns Zeit, Ihre Wünsche zu verstehen, untersuchen sorgfältig und erklären verständlich, welche Behandlungsoptionen für Sie infrage kommen.",
+          "Ein gerades Lächeln ist mehr als Ästhetik: Eine korrekte Zahnstellung erleichtert die tägliche Mundhygiene, schützt vor Karies und Parodontitis und sorgt für ein gesundes Kiefergelenk. Auch das Sprechen, Kauen und die natürliche Atmung profitieren von einem harmonisch ausgerichteten Gebiss – Aspekte, die im Alltag oft unterschätzt werden, aber langfristig einen großen Beitrag zur allgemeinen Gesundheit leisten.",
+          "In einem persönlichen Beratungsgespräch nehmen wir uns Zeit, Ihre Wünsche zu verstehen, untersuchen sorgfältig und erklären verständlich, welche Behandlungsoptionen für Sie infrage kommen. Mithilfe digitaler Diagnostik visualisieren wir das mögliche Ergebnis bereits vor Behandlungsbeginn, sodass Sie eine fundierte Entscheidung treffen können – ohne Druck und in Ruhe.",
+          "Als Praxis im Herzen von Bergedorf betreuen wir Patientinnen und Patienten aus ganz Hamburg sowie aus den umliegenden Stadtteilen wie Lohbrügge, Reinbek, Wentorf, Glinde und Geesthacht. Kurze Wartezeiten, verlässliche Termine und eine ruhige, freundliche Atmosphäre gehören für uns selbstverständlich zu einer guten kieferorthopädischen Versorgung dazu.",
         ]}
       />
 
