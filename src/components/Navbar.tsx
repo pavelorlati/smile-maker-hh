@@ -49,6 +49,15 @@ const Navbar = () => {
             <Phone className="h-4 w-4" />
             040 7 24 52 41
           </a>
+          <a
+            href="https://www.instagram.com/kieferorthopaedie.bergedorf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Instagram className="h-4 w-4" />
+          </a>
           <Button asChild className="rounded-full">
             <a href={DOCTOLIB_URL} target="_blank" rel="noopener noreferrer">
               Termin vereinbaren
