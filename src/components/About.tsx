@@ -66,10 +66,6 @@ const About = () => {
               loading="lazy"
               className="aspect-[4/3] rounded-lg object-cover w-full shadow-lg"
             />
-            <div className="absolute bottom-4 right-4 bg-card border border-border rounded-lg p-4 shadow-md">
-              <div className="text-3xl font-display font-bold text-primary">5.0</div>
-              <div className="text-xs text-muted-foreground font-medium">Google Bewertung</div>
-            </div>
           </div>
         </div>
       </div>

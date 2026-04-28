@@ -9,7 +9,6 @@ const navLinks = [
   { label: "Leistungen", href: "/leistungen" },
   { label: "Über uns", href: "/ueber-uns" },
   { label: "Team", href: "/team" },
-  { label: "Bewertungen", href: "/bewertungen" },
   { label: "Kontakt", href: "/kontakt" },
 ];
 

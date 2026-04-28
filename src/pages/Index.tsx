@@ -5,7 +5,7 @@ import FloatingPhone from "@/components/FloatingPhone";
 import AccessibilityInfo from "@/components/AccessibilityInfo";
 import CTABanner from "@/components/CTABanner";
 import { Link } from "react-router-dom";
-import { ArrowRight, Stethoscope, Users, Heart, Star } from "lucide-react";
+import { ArrowRight, Stethoscope, Users, Heart } from "lucide-react";
 
 const highlights = [
   {
@@ -26,12 +26,6 @@ const highlights = [
     desc: "Dr. Negar Ajoudani & Team",
     href: "/team",
   },
-  {
-    icon: Star,
-    title: "Bewertungen",
-    desc: "5.0 Sterne auf Google",
-    href: "/bewertungen",
-  },
 ];
 
 const Index = () => {
@@ -50,7 +44,7 @@ const Index = () => {
             <div className="section-divider mt-4" />
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {highlights.map((item) => (
               <Link
                 key={item.href}
