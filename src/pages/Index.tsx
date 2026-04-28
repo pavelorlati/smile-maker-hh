@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import FloatingPhone from "@/components/FloatingPhone";
 import AccessibilityInfo from "@/components/AccessibilityInfo";
 import CTABanner from "@/components/CTABanner";
+import SeoText from "@/components/SeoText";
 import { Link } from "react-router-dom";
 import { ArrowRight, Stethoscope, Users, Heart } from "lucide-react";
 
@@ -64,6 +65,14 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <SeoText
+        heading="Ihre Kieferorthopädie in Hamburg Bergedorf"
+        paragraphs={[
+          "Die Praxis Dr. Negar Ajoudani ist Ihre Anlaufstelle für moderne Kieferorthopädie in Hamburg Bergedorf. Als Fachzahnärztin behandelt Dr. Ajoudani Kinder, Jugendliche und Erwachsene mit aktuellen Methoden – von der klassischen festsitzenden Zahnspange über transparente Aligner bis hin zur Frühbehandlung. Unsere Praxis liegt zentral in der Bergedorfer Schloßstraße und ist mit öffentlichen Verkehrsmitteln sowie dem Auto bequem zu erreichen.",
+          "Ein gerades Lächeln ist mehr als Ästhetik: Eine korrekte Zahnstellung erleichtert die tägliche Mundhygiene, schützt vor Karies und Parodontitis und sorgt für ein gesundes Kiefergelenk. In einem persönlichen Beratungsgespräch nehmen wir uns Zeit, Ihre Wünsche zu verstehen, untersuchen sorgfältig und erklären verständlich, welche Behandlungsoptionen für Sie infrage kommen.",
+        ]}
+      />
 
       <CTABanner />
       <Footer />
