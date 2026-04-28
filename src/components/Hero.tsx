@@ -18,8 +18,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 pt-28 pb-20 relative z-10">
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-white/10 text-white/90 text-xs font-medium tracking-wide mb-6">
-            <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-            5.0 Google Bewertung · Kieferorthopädie Bergedorf
+            Kieferorthopädie Hamburg Bergedorf
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-[1.1] mb-6">
