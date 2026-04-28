@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.svg";
@@ -82,10 +82,21 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <a href="tel:+49407245241" className="flex items-center gap-2 text-sm font-semibold text-primary py-2">
-              <Phone className="h-4 w-4" />
-              040 7 24 52 41
-            </a>
+            <div className="flex items-center gap-4 py-2">
+              <a href="tel:+49407245241" className="flex items-center gap-2 text-sm font-semibold text-primary">
+                <Phone className="h-4 w-4" />
+                040 7 24 52 41
+              </a>
+              <a
+                href="https://www.instagram.com/kieferorthopaedie.bergedorf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Instagram className="h-4 w-4" />
+              </a>
+            </div>
             <Button asChild className="w-full rounded-full">
               <a href={DOCTOLIB_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
                 Termin vereinbaren
