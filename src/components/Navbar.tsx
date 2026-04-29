@@ -49,7 +49,7 @@ const Navbar = () => {
             <Phone className="h-4 w-4" />
             040 7 24 52 41
           </a>
-          <
+          <a
             href="https://www.instagram.com/kieferorthopaedie.bergedorf"
             target="_blank"
             rel="noopener noreferrer"
