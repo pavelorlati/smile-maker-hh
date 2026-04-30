@@ -5,6 +5,7 @@ import FloatingPhone from "@/components/FloatingPhone";
 import AccessibilityInfo from "@/components/AccessibilityInfo";
 import CTABanner from "@/components/CTABanner";
 import SeoText from "@/components/SeoText";
+import Reviews from "@/components/Reviews";
 import { Link } from "react-router-dom";
 import { ArrowRight, Stethoscope, Users, Heart } from "lucide-react";
 
@@ -76,6 +77,7 @@ const Index = () => {
         ]}
       />
 
+      <Reviews />
       <CTABanner />
       <Footer />
       <FloatingPhone />
