@@ -136,72 +136,38 @@
     -webkit-text-fill-color: transparent;
   }
 
-  /* Soap-bubble card: iridescent shimmer, glossy highlight, gentle wobble on click */
+  /* Soft card: subtle lift, gentle glossy highlight, smooth modern feel */
   .bubble-card {
-    @apply relative rounded-[28px] cursor-pointer;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+    @apply relative rounded-2xl cursor-pointer;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     transform-origin: center;
     box-shadow:
-      0 10px 30px -12px hsl(var(--brand-teal) / 0.25),
-      0 4px 12px -4px hsl(var(--brand-purple) / 0.15),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+      0 6px 20px -10px hsl(var(--brand-teal) / 0.18),
+      0 2px 8px -4px hsl(var(--brand-purple) / 0.10),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
     isolation: isolate;
   }
   .bubble-card::before {
     content: "";
-    @apply absolute inset-0 rounded-[28px] pointer-events-none opacity-60;
-    background:
-      radial-gradient(ellipse 60% 40% at 22% 18%, rgba(255, 255, 255, 0.55), transparent 60%),
-      radial-gradient(ellipse 30% 20% at 78% 82%, rgba(255, 255, 255, 0.25), transparent 60%);
+    @apply absolute inset-0 rounded-2xl pointer-events-none opacity-0;
+    background: radial-gradient(ellipse 70% 50% at 25% 15%, rgba(255, 255, 255, 0.45), transparent 65%);
     z-index: 2;
-    transition: opacity 0.4s ease;
-  }
-  .bubble-card::after {
-    content: "";
-    @apply absolute inset-0 rounded-[28px] pointer-events-none opacity-0;
-    background: conic-gradient(
-      from 0deg,
-      hsl(var(--brand-purple) / 0.35),
-      hsl(var(--brand-teal) / 0.35),
-      hsl(330 80% 80% / 0.3),
-      hsl(50 90% 75% / 0.3),
-      hsl(var(--brand-teal) / 0.35),
-      hsl(var(--brand-purple) / 0.35)
-    );
-    mix-blend-mode: overlay;
-    z-index: 1;
     transition: opacity 0.5s ease;
   }
   .bubble-card:hover {
-    transform: translateY(-6px) scale(1.02);
+    transform: translateY(-3px);
     box-shadow:
-      0 20px 45px -12px hsl(var(--brand-teal) / 0.4),
-      0 8px 20px -6px hsl(var(--brand-purple) / 0.25),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
-  }
-  .bubble-card:hover::after {
-    opacity: 1;
-    animation: bubble-shimmer 6s linear infinite;
+      0 12px 30px -12px hsl(var(--brand-teal) / 0.28),
+      0 4px 12px -4px hsl(var(--brand-purple) / 0.15),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.7);
   }
   .bubble-card:hover::before {
-    opacity: 0.85;
+    opacity: 0.6;
   }
   .bubble-card:active {
-    animation: bubble-pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: translateY(-1px);
+    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
   }
-}
-
-@keyframes bubble-shimmer {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-@keyframes bubble-pop {
-  0%   { transform: translateY(-6px) scale(1.02); }
-  20%  { transform: translateY(-2px) scale(0.94, 1.06); }
-  40%  { transform: translateY(-8px) scale(1.06, 0.95); }
-  60%  { transform: translateY(-4px) scale(0.98, 1.03); }
-  80%  { transform: translateY(-6px) scale(1.02, 0.99); }
-  100% { transform: translateY(-6px) scale(1.02); }
 }
 
 html {
