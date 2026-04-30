@@ -1,5 +1,9 @@
 import { AlertTriangle, Users, Heart, CalendarCheck, ArrowRight, Sparkles } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import emergencyImg from "@/assets/service-emergency.jpg";
+import allAgesImg from "@/assets/service-allages.jpg";
+import anxietyImg from "@/assets/service-anxiety.jpg";
+import alignerImg from "@/assets/service-aligner.jpg";
 
 const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopaedie-ajoudani-negar?utm_campaign=website-button&utm_source=kieferorthopaedie-ajoudani-negar-website-button&utm_medium=referral&utm_content=option-8&utm_term=kieferorthopaedie-ajoudani-negar";
 
@@ -15,6 +19,8 @@ const services = [
     ],
     iconColor: "text-destructive",
     iconBg: "bg-destructive/8",
+    image: emergencyImg,
+    imageAlt: "Buntes Erste-Hilfe-Set mit Zahnbürste und Zahnseide",
   },
   {
     icon: Users,
@@ -27,6 +33,8 @@ const services = [
     ],
     iconColor: "text-primary",
     iconBg: "bg-primary/8",
+    image: allAgesImg,
+    imageAlt: "Bunte Zahnmodelle mit Zahnspangen und kleinem Plüsch-Zahn",
   },
   {
     icon: Heart,
@@ -39,6 +47,8 @@ const services = [
     ],
     iconColor: "text-primary",
     iconBg: "bg-primary/8",
+    image: anxietyImg,
+    imageAlt: "Kuscheliger Teddybär neben kleinem Zahnmodell – beruhigende Atmosphäre",
   },
   {
     icon: Sparkles,
@@ -51,8 +61,11 @@ const services = [
     ],
     iconColor: "text-accent",
     iconBg: "bg-accent/8",
+    image: alignerImg,
+    imageAlt: "Transparente Aligner-Schienen auf pastellfarbenem Hintergrund",
   },
 ];
+
 
 const Services = () => {
   return (
