@@ -16,7 +16,7 @@ const Team = () => {
         </div>
 
         <div className="max-w-lg mx-auto">
-          <div className="bg-card border border-border rounded-lg p-8 md:p-10 text-center shadow-sm">
+          <div tabIndex={0} className="bubble-card bg-card border border-border p-8 md:p-10 text-center shadow-sm hover:shadow-xl">
             <img
               src={teamImg}
               alt="Dr. Negar Ajoudani – Fachzahnärztin für Kieferorthopädie"

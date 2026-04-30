@@ -104,6 +104,14 @@ export default {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
         },
+        "wiggle": {
+          "0%, 100%": { transform: "rotate(0deg) scale(1)" },
+          "15%": { transform: "rotate(-1.6deg) scale(0.97)" },
+          "30%": { transform: "rotate(1.4deg) scale(1.02)" },
+          "45%": { transform: "rotate(-1deg) scale(1.01)" },
+          "60%": { transform: "rotate(0.8deg) scale(1.01)" },
+          "75%": { transform: "rotate(-0.4deg) scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -115,6 +123,7 @@ export default {
         "phone-glow": "phone-glow 8s ease-in-out infinite",
         "float": "float 3s ease-in-out infinite",
         "shimmer": "shimmer 2s linear infinite",
+        "wiggle": "wiggle 0.6s ease-in-out",
       },
     },
   },

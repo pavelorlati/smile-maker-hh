@@ -50,7 +50,7 @@ const Index = () => {
               <Link
                 key={item.href}
                 to={item.href}
-                className="bg-card border border-border rounded-lg p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-200 group"
+                className="bubble-card bg-card border border-border p-6 hover:shadow-xl group block"
               >
                 <div className="w-11 h-11 rounded-lg bg-primary/8 flex items-center justify-center mb-4">
                   <item.icon className="h-5 w-5 text-primary" />
