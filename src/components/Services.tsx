@@ -93,7 +93,7 @@ const Services = () => {
                   width={1024}
                   height={640}
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <CardContent className="relative z-[3] p-7">
