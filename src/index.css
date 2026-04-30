@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 20% 16%;
 
-    --primary: 270 55% 52%;
+    --primary: 168 70% 42%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 14% 96%;
@@ -24,7 +24,7 @@
     --muted: 220 14% 96%;
     --muted-foreground: 220 10% 46%;
 
-    --accent: 160 45% 40%;
+    --accent: 270 55% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,7 +32,7 @@
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 270 55% 52%;
+    --ring: 168 70% 42%;
 
     /* Brand gradient from logo (purple #b693ec -> teal #54e9be) with stronger teal weight */
     --brand-purple: 268 70% 75%;
@@ -62,7 +62,7 @@
     --popover: 220 20% 12%;
     --popover-foreground: 220 14% 96%;
 
-    --primary: 270 55% 58%;
+    --primary: 168 70% 48%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 20% 16%;
@@ -71,7 +71,7 @@
     --muted: 220 20% 16%;
     --muted-foreground: 220 10% 60%;
 
-    --accent: 160 45% 40%;
+    --accent: 270 55% 65%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
@@ -79,7 +79,7 @@
 
     --border: 220 20% 18%;
     --input: 220 20% 18%;
-    --ring: 270 55% 58%;
+    --ring: 168 70% 48%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
