@@ -36,8 +36,8 @@ const About = () => {
 
             <div className="grid grid-cols-3 gap-3 mb-8">
               {values.map((v) => (
-                <div key={v.label} className="bg-secondary rounded-lg p-4 text-center">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-2">
+                <div key={v.label} tabIndex={0} className="bubble-card bg-secondary p-4 text-center hover:shadow-md">
+                  <div className="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-2">
                     <v.icon className="h-5 w-5 text-primary" />
                   </div>
                   <span className="text-xs font-semibold text-foreground block">{v.label}</span>
