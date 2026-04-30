@@ -34,6 +34,12 @@
     --input: 220 13% 91%;
     --ring: 270 55% 52%;
 
+    /* Brand gradient from logo (purple #b693ec -> teal #54e9be) with stronger teal weight */
+    --brand-purple: 268 70% 75%;
+    --brand-teal: 165 75% 62%;
+    --gradient-brand: linear-gradient(135deg, hsl(var(--brand-purple)) 0%, hsl(var(--brand-teal)) 55%, hsl(var(--brand-teal)) 100%);
+    --gradient-brand-hover: linear-gradient(135deg, hsl(var(--brand-purple)) 0%, hsl(var(--brand-teal)) 45%, hsl(var(--brand-teal)) 100%);
+
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
@@ -111,6 +117,23 @@
   .section-divider {
     @apply w-12 h-0.5 rounded-full mx-auto;
     background: hsl(var(--primary));
+  }
+
+  .btn-brand {
+    background-image: var(--gradient-brand);
+    @apply text-white transition-all;
+  }
+  .btn-brand:hover {
+    background-image: var(--gradient-brand-hover);
+    filter: brightness(1.05);
+  }
+  .btn-brand-outline {
+    background-image: var(--gradient-brand);
+    color: hsl(var(--primary));
+    @apply transition-all;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 
