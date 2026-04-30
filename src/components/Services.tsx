@@ -86,7 +86,7 @@ const Services = () => {
               tabIndex={0}
               className="bubble-card border border-border shadow-sm hover:shadow-xl overflow-hidden bg-card"
             >
-              <div className="aspect-[16/10] w-full overflow-hidden bg-secondary">
+              <div className="relative z-[3] aspect-[16/10] w-full overflow-hidden bg-secondary">
                 <img
                   src={s.image}
                   alt={s.imageAlt}
@@ -96,7 +96,7 @@ const Services = () => {
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
-              <CardContent className="p-7">
+              <CardContent className="relative z-[3] p-7">
                 <div className={`w-12 h-12 rounded-2xl ${s.iconBg} flex items-center justify-center mb-4`}>
                   <s.icon className={`h-6 w-6 ${s.iconColor}`} />
                 </div>
