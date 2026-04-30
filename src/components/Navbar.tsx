@@ -58,7 +58,7 @@ const Navbar = () => {
           >
             <Instagram className="h-4 w-4" />
           </a>
-          <Button asChild className="rounded-full">
+          <Button asChild className="rounded-full btn-brand">
             <a href={DOCTOLIB_URL} target="_blank" rel="noopener noreferrer">
               Termin vereinbaren
             </a>
@@ -106,7 +106,7 @@ const Navbar = () => {
                 <Instagram className="h-4 w-4" />
               </a>
             </div>
-            <Button asChild className="w-full rounded-full">
+            <Button asChild className="w-full rounded-full btn-brand">
               <a href={DOCTOLIB_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
                 Termin vereinbaren
               </a>

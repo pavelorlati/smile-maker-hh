@@ -27,7 +27,7 @@ const CTABanner = ({
                 href={DOCTOLIB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors group"
+                className="btn-brand inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-md text-base font-semibold group"
               >
                 <CalendarCheck className="h-5 w-5" />
                 Termin vereinbaren
@@ -60,7 +60,7 @@ const CTABanner = ({
             href={DOCTOLIB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-md text-base font-bold bg-primary-foreground text-primary hover:bg-primary-foreground/90 transition-colors group"
+            className="btn-brand inline-flex items-center justify-center gap-2 px-10 py-4 rounded-md text-base font-bold group"
           >
             <CalendarCheck className="h-5 w-5" />
             Jetzt Termin vereinbaren

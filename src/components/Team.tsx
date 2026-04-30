@@ -36,7 +36,7 @@ const Team = () => {
               href={DOCTOLIB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors group"
+              className="btn-brand inline-flex items-center gap-2 px-8 py-3.5 rounded-md text-sm font-semibold group"
             >
               Beratungstermin bei Dr. Ajoudani
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
