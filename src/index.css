@@ -136,7 +136,7 @@
     -webkit-text-fill-color: transparent;
   }
 
-  /* Soft card: subtle lift, gentle glossy highlight, smooth modern feel */
+  /* Soft soap-bubble card: gentle wobble & glossy highlight */
   .bubble-card {
     @apply relative rounded-2xl cursor-pointer;
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -160,14 +160,27 @@
       0 12px 30px -12px hsl(var(--brand-teal) / 0.28),
       0 4px 12px -4px hsl(var(--brand-purple) / 0.15),
       inset 0 1px 0 0 rgba(255, 255, 255, 0.7);
+    animation: bubble-wobble 2.4s ease-in-out infinite;
   }
   .bubble-card:hover::before {
     opacity: 0.6;
   }
   .bubble-card:active {
-    transform: translateY(-1px);
-    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    animation: bubble-wobble-soft 0.9s ease-in-out;
   }
+}
+
+@keyframes bubble-wobble {
+  0%, 100% { transform: translateY(-3px) rotate(0deg) scale(1); }
+  25%      { transform: translateY(-4px) rotate(-0.4deg) scale(1.004, 0.996); }
+  50%      { transform: translateY(-3px) rotate(0deg) scale(0.998, 1.002); }
+  75%      { transform: translateY(-4px) rotate(0.4deg) scale(1.004, 0.996); }
+}
+@keyframes bubble-wobble-soft {
+  0%, 100% { transform: translateY(-3px) rotate(0deg) scale(1); }
+  20%      { transform: translateY(-3px) rotate(-0.8deg) scale(1.008, 0.992); }
+  50%      { transform: translateY(-3px) rotate(0.6deg) scale(0.994, 1.006); }
+  80%      { transform: translateY(-3px) rotate(-0.3deg) scale(1.003, 0.997); }
 }
 
 html {
