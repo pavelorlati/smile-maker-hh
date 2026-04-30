@@ -83,10 +83,21 @@ const Services = () => {
           {services.map((s) => (
             <Card
               key={s.title}
-              className="border border-border shadow-sm hover:shadow-md transition-shadow duration-200 rounded-lg"
+              tabIndex={0}
+              className="bubble-card border border-border shadow-sm hover:shadow-xl overflow-hidden bg-card"
             >
+              <div className="aspect-[16/10] w-full overflow-hidden bg-secondary">
+                <img
+                  src={s.image}
+                  alt={s.imageAlt}
+                  width={1024}
+                  height={640}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
               <CardContent className="p-7">
-                <div className={`w-12 h-12 rounded-lg ${s.iconBg} flex items-center justify-center mb-4`}>
+                <div className={`w-12 h-12 rounded-2xl ${s.iconBg} flex items-center justify-center mb-4`}>
                   <s.icon className={`h-6 w-6 ${s.iconColor}`} />
                 </div>
                 <h3 className="text-xl font-display font-semibold text-foreground mb-3">{s.title}</h3>
