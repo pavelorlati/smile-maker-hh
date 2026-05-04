@@ -1,9 +1,26 @@
 import { ArrowRight, Phone, Star, Shield, Clock, CalendarCheck } from "lucide-react";
+import { useEffect, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
+
+const heroReviews = [
+  { name: "Sandra K.", text: "Wunderbares Team – meine Tochter geht gerne hin." },
+  { name: "Markus B.", text: "Sehr kompetent, moderne Praxis. Klare Empfehlung!" },
+  { name: "Lena H.", text: "Endlich eine KFO, die sich wirklich Zeit nimmt." },
+  { name: "Jasmin R.", text: "Als Erwachsene absolut zufrieden. Vielen Dank!" },
+];
 
 const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopaedie-ajoudani-negar?utm_campaign=website-button&utm_source=kieferorthopaedie-ajoudani-negar-website-button&utm_medium=referral&utm_content=option-8&utm_term=kieferorthopaedie-ajoudani-negar";
 
 const Hero = () => {
+  const [reviewIdx, setReviewIdx] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setReviewIdx((i) => (i + 1) % heroReviews.length), 4500);
+    return () => clearInterval(id);
+  }, []);
+
+  const review = heroReviews[reviewIdx];
+
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
       <img
@@ -15,10 +32,31 @@ const Hero = () => {
       />
       <div className="absolute inset-0 bg-foreground/60" />
 
+      {/* Floating animated review badge */}
+      <div className="absolute top-24 md:top-28 left-4 md:left-8 z-20 max-w-[260px] hidden sm:block">
+        <div
+          key={reviewIdx}
+          className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg px-3 py-2 shadow-lg animate-fade-in-review"
+        >
+          <div className="flex items-center gap-1 mb-1">
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                className="h-3 w-3 fill-yellow-400 text-yellow-400 animate-star-twinkle"
+                style={{ animationDelay: `${i * 0.15}s` }}
+              />
+            ))}
+            <span className="text-[10px] text-white/70 ml-1">Google</span>
+          </div>
+          <p className="text-[11px] leading-snug text-white/90 line-clamp-2">"{review.text}"</p>
+          <p className="text-[10px] text-white/60 mt-0.5">— {review.name}</p>
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 pt-28 pb-20 relative z-10">
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-white/10 text-white/90 text-xs font-medium tracking-wide mb-6">
-            Kieferorthopädie Hamburg Bergedorf
+            Dr. med. dent. Negar Ajoudani · Kieferorthopädie Hamburg Bergedorf
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-[1.1] mb-6">

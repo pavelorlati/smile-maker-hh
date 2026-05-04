@@ -10,10 +10,11 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
-            <img src={logo} alt="Dr. Negar Ajoudani" className="h-14 w-auto mb-4 brightness-0 invert opacity-80" />
+            <img src={logo} alt="Dr. med. dent. Negar Ajoudani" className="h-16 w-auto mb-4 bg-white/95 rounded-md p-2" />
             <p className="text-sm leading-relaxed text-background/60">
               Moderne Kieferorthopädie für die ganze Familie in Hamburg-Bergedorf.
             </p>
+            <p className="text-xs text-background/50 mt-2">Dr. med. dent. Negar Ajoudani</p>
           </div>
 
           <div>
@@ -46,6 +47,7 @@ const Footer = () => {
               <Link to="/leistungen" className="block hover:text-background transition-colors">Leistungen</Link>
               <Link to="/ueber-uns" className="block hover:text-background transition-colors">Über uns</Link>
               <Link to="/team" className="block hover:text-background transition-colors">Team</Link>
+              <Link to="/galerie" className="block hover:text-background transition-colors">Galerie</Link>
               
               <Link to="/kontakt" className="block hover:text-background transition-colors">Kontakt</Link>
               <a href={DOCTOLIB_URL} target="_blank" rel="noopener noreferrer" className="block hover:text-background transition-colors">Online-Termin buchen</a>
@@ -69,7 +71,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-background/10 pt-8 text-center text-sm text-background/40">
-          <p>© {new Date().getFullYear()} Kieferorthopädie Bergedorf · Dr. Negar Ajoudani. Alle Rechte vorbehalten.</p>
+          <p>© {new Date().getFullYear()} Kieferorthopädie Bergedorf · Dr. med. dent. Negar Ajoudani. Alle Rechte vorbehalten.</p>
         </div>
       </div>
     </footer>

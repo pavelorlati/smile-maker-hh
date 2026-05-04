@@ -48,12 +48,15 @@ const CTABanner = ({
   }
 
   return (
-    <section className="py-16 md:py-20 bg-primary">
+    <section
+      className="py-16 md:py-20"
+      style={{ background: "linear-gradient(135deg, hsl(168 55% 92%) 0%, hsl(168 50% 88%) 100%)" }}
+    >
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-foreground mb-4">
+        <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
           {title}
         </h2>
-        <p className="text-lg text-primary-foreground/80 mb-10 max-w-xl mx-auto">{subtitle}</p>
+        <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">{subtitle}</p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
@@ -68,7 +71,7 @@ const CTABanner = ({
           </a>
           <a
             href="tel:+49407245241"
-            className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-md text-base font-semibold text-primary-foreground border border-primary-foreground/30 hover:bg-primary-foreground/10 transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-md text-base font-semibold text-primary border border-primary/30 hover:bg-primary/5 transition-colors bg-white/60"
           >
             <Phone className="h-5 w-5" />
             040 7 24 52 41

@@ -25,7 +25,7 @@ const Team = () => {
               loading="lazy"
               className="w-56 h-56 rounded-full object-cover object-top mx-auto mb-6"
             />
-            <h3 className="text-2xl font-display font-bold text-foreground mb-1">Dr. Negar Ajoudani</h3>
+            <h3 className="text-2xl font-display font-bold text-foreground mb-1">Dr. med. dent. Negar Ajoudani</h3>
             <p className="text-primary font-semibold mb-5">Fachzahnärztin für Kieferorthopädie</p>
             <p className="text-muted-foreground leading-relaxed mb-8 text-sm max-w-md mx-auto">
               Mit Kompetenz, Einfühlungsvermögen und modernsten Behandlungsmethoden 
