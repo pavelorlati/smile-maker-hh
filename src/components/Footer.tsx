@@ -47,6 +47,7 @@ const Footer = () => {
               <Link to="/leistungen" className="block hover:text-background transition-colors">Leistungen</Link>
               <Link to="/ueber-uns" className="block hover:text-background transition-colors">Über uns</Link>
               <Link to="/team" className="block hover:text-background transition-colors">Team</Link>
+              <Link to="/galerie" className="block hover:text-background transition-colors">Galerie</Link>
               
               <Link to="/kontakt" className="block hover:text-background transition-colors">Kontakt</Link>
               <a href={DOCTOLIB_URL} target="_blank" rel="noopener noreferrer" className="block hover:text-background transition-colors">Online-Termin buchen</a>

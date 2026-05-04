@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Über uns", href: "/ueber-uns" },
   { label: "Team", href: "/team" },
   { label: "Bewertungen", href: "/bewertungen" },
+  { label: "Galerie", href: "/galerie" },
   { label: "Kontakt", href: "/kontakt" },
 ];
 

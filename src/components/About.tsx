@@ -60,11 +60,11 @@ const About = () => {
           <div className="relative">
             <img
               src={aboutImg}
-              alt="Moderne Behandlungsräume der Kieferorthopädie Bergedorf"
+              alt="Helles Wartezimmer der Kieferorthopädie Bergedorf mit blauen Sesseln"
               width={1920}
-              height={1440}
+              height={1080}
               loading="lazy"
-              className="aspect-[4/3] rounded-lg object-cover w-full shadow-lg"
+              className="aspect-[16/10] rounded-lg object-cover w-full shadow-lg"
             />
           </div>
         </div>
