@@ -45,13 +45,6 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="tel:+49407245241"
-            className="hidden lg:flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
-          >
-            <Phone className="h-4 w-4" />
-            040 7 24 52 41
-          </a>
-          <a
             href="https://www.instagram.com/kieferorthopaedie.bergedorf"
             target="_blank"
             rel="noopener noreferrer"
@@ -61,8 +54,9 @@ const Navbar = () => {
             <Instagram className="h-4 w-4" />
           </a>
           <Button asChild className="rounded-full btn-brand">
-            <a href={DOCTOLIB_URL} target="_blank" rel="noopener noreferrer">
-              Termin vereinbaren
+            <a href="tel:+49407245241" className="inline-flex items-center gap-2">
+              <Phone className="h-4 w-4" />
+              040 7 24 52 41
             </a>
           </Button>
         </div>
