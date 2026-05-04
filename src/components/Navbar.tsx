@@ -22,17 +22,17 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto flex items-center justify-between h-20 md:h-24 px-4">
+      <div className="container mx-auto flex items-center justify-between gap-6 h-20 md:h-24 px-4">
         <Link to="/" className="flex-shrink-0 min-w-0">
-          <img src={logo} alt="Dr. med. dent. Negar Ajoudani – Kieferorthopädie Bergedorf" className="h-14 md:h-[4.5rem] lg:h-20 w-auto max-w-[250px] md:max-w-[360px] lg:max-w-[420px]" />
+          <img src={logo} alt="Dr. med. dent. Negar Ajoudani – Kieferorthopädie Bergedorf" className="h-16 md:h-[5rem] lg:h-[5.5rem] w-auto max-w-[260px] md:max-w-[400px] lg:max-w-[480px]" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 flex-1 justify-center">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               to={link.href}
-              className={`text-sm font-medium transition-colors ${
+              className={`text-sm font-medium transition-colors whitespace-nowrap ${
                 location.pathname === link.href
                   ? "text-primary font-semibold"
                   : "text-foreground/80 hover:text-primary"
@@ -43,7 +43,7 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-3 flex-shrink-0">
           <a
             href="https://www.instagram.com/kieferorthopaedie.bergedorf"
             target="_blank"
@@ -51,12 +51,12 @@ const Navbar = () => {
             aria-label="Instagram"
             className="text-muted-foreground hover:text-primary transition-colors"
           >
-            <Instagram className="h-4 w-4" />
+            <Instagram className="h-5 w-5" />
           </a>
           <a
             href="tel:+49407245241"
             aria-label="Anrufen 040 7 24 52 41"
-            className="inline-flex items-center justify-center h-9 w-9 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center justify-center h-10 w-10 rounded-full btn-brand text-white shadow-sm hover:opacity-90 transition-opacity"
           >
             <Phone className="h-4 w-4" />
           </a>
