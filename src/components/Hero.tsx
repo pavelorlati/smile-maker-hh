@@ -33,7 +33,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-foreground/60" />
 
       {/* Floating animated review badge */}
-      <div className="absolute top-24 md:top-28 left-4 md:left-8 z-20 max-w-[260px] hidden sm:block">
+      <div className="absolute top-24 md:top-28 right-4 md:right-8 z-20 max-w-[260px] hidden sm:block">
         <div
           key={reviewIdx}
           className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg px-3 py-2 shadow-lg animate-fade-in-review"
