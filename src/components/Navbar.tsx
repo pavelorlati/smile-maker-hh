@@ -23,8 +23,16 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-20 md:h-24 px-4">
-        <Link to="/" className="flex-shrink-0">
-          <img src={logo} alt="Dr. Negar Ajoudani – Kieferorthopädie Bergedorf" className="h-16 md:h-20 w-auto" />
+        <Link to="/" className="flex-shrink-0 flex items-center gap-3">
+          <img src={logo} alt="Dr. med. dent. Negar Ajoudani – Kieferorthopädie Bergedorf" className="h-16 md:h-20 w-auto" />
+          <span className="hidden sm:flex flex-col leading-tight">
+            <span className="font-display font-semibold text-foreground text-sm md:text-base">
+              Dr. med. dent. Negar Ajoudani
+            </span>
+            <span className="text-[10px] md:text-xs text-muted-foreground tracking-wide">
+              Fachzahnärztin für Kieferorthopädie
+            </span>
+          </span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
