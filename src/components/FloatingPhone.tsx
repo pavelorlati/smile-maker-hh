@@ -50,9 +50,9 @@ const FloatingPhone = () => {
         {/* Tab button */}
         <button
           onClick={() => setOpen(!open)}
-          className="bg-primary text-primary-foreground px-2 py-6 rounded-l-md shadow-[0_0_12px_hsl(var(--primary)/0.35)] hover:shadow-[0_0_18px_hsl(var(--primary)/0.45)] hover:bg-primary/90 transition-all duration-300"
+          className="text-primary-foreground px-2 py-6 rounded-l-md shadow-[0_0_12px_hsl(var(--primary)/0.35)] hover:shadow-[0_0_18px_hsl(var(--primary)/0.45)] transition-all duration-300 hover:opacity-95"
           aria-label="Kontakt öffnen"
-          style={{ writingMode: "vertical-rl" }}
+          style={{ writingMode: "vertical-rl", backgroundImage: "var(--gradient-brand)" }}
         >
           <span className="text-xs font-semibold tracking-widest uppercase">
             {open ? "✕" : "Kontakt"}
