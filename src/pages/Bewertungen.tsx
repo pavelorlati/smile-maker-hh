@@ -5,6 +5,9 @@ import bgAbstract from "@/assets/reviews-bg-abstract.jpg";
 import imgAligners from "@/assets/reviews-aligners.jpg";
 import imgTooth from "@/assets/reviews-tooth-model.jpg";
 import imgFlowers from "@/assets/reviews-flowers.jpg";
+import imgFlowerSingle from "@/assets/reviews-flower-single.jpg";
+import imgThankyou from "@/assets/reviews-thankyou-card.jpg";
+import imgTea from "@/assets/reviews-tea.jpg";
 
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?q=Kieferorthop%C3%A4die+Dr.+Negar+Ajoudani+Bergedorf";
@@ -36,6 +39,8 @@ const reviews = [
     rating: 5,
     date: "vor 1 Monat",
     text: "Endlich eine Kieferorthopädin, die sich wirklich Zeit nimmt. Mein Sohn fühlt sich ernst genommen und das Team geht toll auf Kinder ein. Klare Empfehlung in Bergedorf!",
+    image: imgThankyou,
+    imageAlt: "Handgeschriebene Dankeskarte mit Herz",
   },
   {
     name: "Familie Petersen",
@@ -52,6 +57,8 @@ const reviews = [
     rating: 5,
     date: "vor 3 Monaten",
     text: "Ich bin als Erwachsene in Behandlung und absolut zufrieden. Frau Dr. Ajoudani erklärt jeden Schritt verständlich und das Ergebnis spricht für sich. Vielen Dank!",
+    image: imgFlowerSingle,
+    imageAlt: "Zarte rosa Blüte",
   },
   {
     name: "Tobias W.",
@@ -59,6 +66,8 @@ const reviews = [
     rating: 5,
     date: "vor 4 Monaten",
     text: "Tolle Atmosphäre, freundlicher Empfang und kurze Wartezeiten. Die Kinderecke ist liebevoll gestaltet – unsere Kleine möchte am liebsten sofort wiederkommen.",
+    image: imgTea,
+    imageAlt: "Warmer Tee als herzliche Geste",
   },
 ];
 
