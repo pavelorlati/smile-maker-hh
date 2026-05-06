@@ -5,6 +5,9 @@ import bgAbstract from "@/assets/reviews-bg-abstract.jpg";
 import imgAligners from "@/assets/reviews-aligners.jpg";
 import imgTooth from "@/assets/reviews-tooth-model.jpg";
 import imgFlowers from "@/assets/reviews-flowers.jpg";
+import imgFlowerSingle from "@/assets/reviews-flower-single.jpg";
+import imgThankyou from "@/assets/reviews-thankyou-card.jpg";
+import imgTea from "@/assets/reviews-tea.jpg";
 
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?q=Kieferorthop%C3%A4die+Dr.+Negar+Ajoudani+Bergedorf";
