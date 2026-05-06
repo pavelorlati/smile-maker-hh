@@ -7,7 +7,7 @@ import imgTooth from "@/assets/reviews-braces-mouth.jpg";
 import imgFlowers from "@/assets/reviews-flowers.jpg";
 import imgFlowerSingle from "@/assets/reviews-flower-single.jpg";
 import imgThankyou from "@/assets/reviews-thankyou-card.jpg";
-import imgTea from "@/assets/reviews-tea.jpg";
+import imgTea from "@/assets/reviews-adult-smile.jpg";
 
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?q=Kieferorthop%C3%A4die+Dr.+Negar+Ajoudani+Bergedorf";
@@ -67,7 +67,7 @@ const reviews = [
     date: "vor 4 Monaten",
     text: "Tolle Atmosphäre, freundlicher Empfang und kurze Wartezeiten. Die Kinderecke ist liebevoll gestaltet – unsere Kleine möchte am liebsten sofort wiederkommen.",
     image: imgTea,
-    imageAlt: "Warmer Tee als herzliche Geste",
+    imageAlt: "Strahlendes Lächeln nach der Behandlung",
   },
 ];
 
