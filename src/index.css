@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 20% 16%;
 
-    --primary: 177 47% 35%;
+    --primary: 165 65% 55%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 14% 96%;
@@ -32,7 +32,7 @@
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 177 47% 35%;
+    --ring: 165 65% 55%;
 
     /* Brand gradient from logo (purple #b693ec -> teal #54e9be) with stronger teal weight */
     --brand-purple: 268 70% 75%;
@@ -62,8 +62,8 @@
     --popover: 220 20% 12%;
     --popover-foreground: 220 14% 96%;
 
-    --primary: 177 47% 42%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 165 70% 60%;
+    --primary-foreground: 220 20% 12%;
 
     --secondary: 220 20% 16%;
     --secondary-foreground: 220 14% 96%;
@@ -79,7 +79,7 @@
 
     --border: 220 20% 18%;
     --input: 220 20% 18%;
-    --ring: 177 47% 42%;
+    --ring: 165 70% 60%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
