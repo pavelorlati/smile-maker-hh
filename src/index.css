@@ -136,31 +136,6 @@
     -webkit-text-fill-color: transparent;
   }
 
-  /* Ghost button with gradient border + gradient text/icon, transparent background */
-  .btn-brand-ghost {
-    @apply relative inline-flex items-center justify-center gap-2 rounded-md transition-all;
-    background-color: transparent;
-  }
-  .btn-brand-ghost::before {
-    content: "";
-    @apply absolute inset-0 rounded-md pointer-events-none;
-    padding: 1px;
-    background: var(--gradient-brand);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
-  }
-  .btn-brand-ghost > .btn-brand-text {
-    background-image: var(--gradient-brand);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .btn-brand-ghost:hover::before {
-    background: var(--gradient-brand-hover);
-    filter: brightness(1.1);
-  }
-
   /* Soft soap-bubble card: gentle wobble & glossy highlight */
   .bubble-card {
     @apply relative rounded-2xl cursor-pointer;
