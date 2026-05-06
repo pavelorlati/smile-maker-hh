@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, Send, ArrowRight, CalendarCheck } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, ArrowRight, CalendarCheck, FileText, Download } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -88,7 +88,7 @@ const Contact = () => {
           <div className="section-divider mt-4" />
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto mb-8">
           <a href="tel:+49407245241" className="bg-card border border-border rounded-lg p-5 text-center hover:shadow-md transition-shadow duration-200">
             <div className="w-11 h-11 rounded-lg bg-primary/8 flex items-center justify-center mx-auto mb-3">
               <Phone className="h-5 w-5 text-primary" />
@@ -110,6 +110,76 @@ const Contact = () => {
             <span className="text-sm font-bold text-primary-foreground block">Online buchen</span>
             <span className="text-xs text-primary-foreground/70">24/7 über Doctolib</span>
           </a>
+          <a href="#formulare" className="bg-card border border-border rounded-lg p-5 text-center hover:shadow-md transition-shadow duration-200">
+            <div className="w-11 h-11 rounded-lg bg-primary/8 flex items-center justify-center mx-auto mb-3">
+              <FileText className="h-5 w-5 text-primary" />
+            </div>
+            <span className="text-sm font-bold text-foreground block">Formulare</span>
+            <span className="text-xs text-muted-foreground">Anamnese & Datenschutz</span>
+          </a>
+        </div>
+
+        <div id="formulare" className="max-w-5xl mx-auto mb-12 scroll-mt-32">
+          <div className="bg-card border border-border rounded-lg p-6 md:p-8">
+            <div className="flex items-start gap-4 mb-5">
+              <div className="w-11 h-11 rounded-lg bg-primary/8 flex items-center justify-center flex-shrink-0">
+                <FileText className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-lg md:text-xl font-display font-semibold text-foreground">Anamnesebogen & Datenschutz</h3>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Sparen Sie Zeit beim ersten Termin: Laden Sie die Formulare bequem von zuhause herunter,
+                  füllen Sie sie digital (z. B. mit Apple Pencil oder Tastatur in einer PDF-App) oder ausgedruckt aus
+                  – und schicken Sie sie uns per E-Mail zurück oder bringen Sie sie ausgefüllt mit.
+                </p>
+              </div>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-3">
+              <a
+                href="/dokumente/Anamnesebogen.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="flex items-center justify-between gap-3 p-4 rounded-md border border-border bg-background hover:bg-primary/5 hover:border-primary/30 transition-colors group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center">
+                    <FileText className="h-4 w-4 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-sm font-semibold text-foreground block">Anamnesebogen</span>
+                    <span className="text-xs text-muted-foreground">PDF zum Ausfüllen</span>
+                  </div>
+                </div>
+                <Download className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
+              <a
+                href="/dokumente/Datenschutz.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="flex items-center justify-between gap-3 p-4 rounded-md border border-border bg-background hover:bg-primary/5 hover:border-primary/30 transition-colors group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center">
+                    <FileText className="h-4 w-4 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-sm font-semibold text-foreground block">Datenschutzerklärung</span>
+                    <span className="text-xs text-muted-foreground">PDF zum Ausfüllen</span>
+                  </div>
+                </div>
+                <Download className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground mt-4">
+              Tipp: Auf dem iPad lassen sich die PDFs direkt in der Dateien-App oder in „Vorschau" mit dem Apple Pencil unterschreiben.
+              Senden Sie die ausgefüllten Dokumente an{" "}
+              <a href="mailto:praxis@kieferorthopaedie-bergedorf.de" className="text-primary hover:underline">
+                praxis@kieferorthopaedie-bergedorf.de
+              </a>.
+            </p>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
