@@ -71,25 +71,68 @@ const emptyDatenschutz: DatenschutzData = {
   notizen_datenschutz: "",
 };
 
-const anamneseCheckboxes = [
-  ["gesetzlich_versichert", "gesetzlich"],
-  ["privat_versichert", "privat"],
-  ["grund_ueberweisung", "Überweisung"],
-  ["grund_eigen", "Eigener Entschluss"],
-  ["grund_eltern", "Wunsch der Eltern"],
-  ["kfo_nein", "KFO-Behandlung: nein"],
-  ["kfo_ja", "KFO-Behandlung: ja"],
-  ["logo_nein", "Logo-/Ergotherapie: nein"],
-  ["logo_ja", "Logo-/Ergotherapie: ja"],
-  ["unfall_nein", "Zahnunfall: nein"],
-  ["unfall_ja", "Zahnunfall: ja"],
-  ["herzerkrankungen_nein", "Herzerkrankungen nein"],
-  ["herzerkrankungen_ja", "Herzerkrankungen ja"],
-  ["asthma_atemwegserkrankungen_nein", "Asthma/Atemwege nein"],
-  ["asthma_atemwegserkrankungen_ja", "Asthma/Atemwege ja"],
-  ["allergien_nein", "Allergien nein"],
-  ["allergien_ja", "Allergien ja"],
-] as const;
+type CheckboxOption = { name: string; label: string };
+type CheckboxGroup = { title: string; options: CheckboxOption[] };
+
+const anamneseGroups: CheckboxGroup[] = [
+  {
+    title: "Versicherung",
+    options: [
+      { name: "gesetzlich_versichert", label: "gesetzlich" },
+      { name: "privat_versichert", label: "privat" },
+    ],
+  },
+  {
+    title: "Grund des Besuchs",
+    options: [
+      { name: "grund_ueberweisung", label: "Überweisung" },
+      { name: "grund_eigen", label: "Eigener Entschluss" },
+      { name: "grund_eltern", label: "Wunsch der Eltern" },
+    ],
+  },
+  {
+    title: "KFO-Behandlung",
+    options: [
+      { name: "kfo_ja", label: "ja" },
+      { name: "kfo_nein", label: "nein" },
+    ],
+  },
+  {
+    title: "Logo-/Ergotherapie",
+    options: [
+      { name: "logo_ja", label: "ja" },
+      { name: "logo_nein", label: "nein" },
+    ],
+  },
+  {
+    title: "Zahnunfall",
+    options: [
+      { name: "unfall_ja", label: "ja" },
+      { name: "unfall_nein", label: "nein" },
+    ],
+  },
+  {
+    title: "Herzerkrankungen",
+    options: [
+      { name: "herzerkrankungen_ja", label: "ja" },
+      { name: "herzerkrankungen_nein", label: "nein" },
+    ],
+  },
+  {
+    title: "Asthma / Atemwege",
+    options: [
+      { name: "asthma_atemwegserkrankungen_ja", label: "ja" },
+      { name: "asthma_atemwegserkrankungen_nein", label: "nein" },
+    ],
+  },
+  {
+    title: "Allergien",
+    options: [
+      { name: "allergien_ja", label: "ja" },
+      { name: "allergien_nein", label: "nein" },
+    ],
+  },
+];
 
 const datenschutzCheckboxes = [
   ["einwilligung_behandlung", "Datenverarbeitung zur Behandlung"],
