@@ -97,7 +97,8 @@ const datenschutzCheckboxes = [
 ] as const;
 
 const savePdf = (bytes: Uint8Array, filename: string) => {
-  const blob = new Blob([bytes], { type: "application/pdf" });
+  const data = new Uint8Array(bytes);
+  const blob = new Blob([data.buffer as ArrayBuffer], { type: "application/pdf" });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
