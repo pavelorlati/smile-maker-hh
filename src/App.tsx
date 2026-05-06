@@ -11,6 +11,7 @@ import Bewertungen from "./pages/Bewertungen";
 import Galerie from "./pages/Galerie";
 
 import Kontakt from "./pages/Kontakt";
+import Formulare from "./pages/Formulare";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import NotFound from "./pages/NotFound";
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/bewertungen" element={<Bewertungen />} />
           <Route path="/galerie" element={<Galerie />} />
           <Route path="/kontakt" element={<Kontakt />} />
+          <Route path="/formulare" element={<Formulare />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="*" element={<NotFound />} />

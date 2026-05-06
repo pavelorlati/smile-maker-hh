@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, Send, ArrowRight, CalendarCheck, FileText, Download } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, ArrowRight, CalendarCheck, FileText, Download, PencilLine } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -135,6 +136,21 @@ const Contact = () => {
                 </p>
               </div>
             </div>
+            <Link
+              to="/formulare"
+              className="mb-3 flex items-center justify-between gap-3 p-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors group"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-md bg-primary-foreground/15 flex items-center justify-center">
+                  <PencilLine className="h-4 w-4 text-primary-foreground" />
+                </div>
+                <div className="text-left">
+                  <span className="text-sm font-semibold block">Direkt am Handy ausfüllen</span>
+                  <span className="text-xs text-primary-foreground/75">Danach als bearbeitbare PDF speichern</span>
+                </div>
+              </div>
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
             <div className="grid sm:grid-cols-2 gap-3">
               <a
                 href="/dokumente/Anamnesebogen.pdf"
