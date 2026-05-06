@@ -33,10 +33,10 @@ const Hero = () => {
       <div className="absolute inset-0 bg-foreground/60" />
 
       {/* Floating animated review badge */}
-      <div className="absolute top-24 md:top-28 right-4 md:right-8 z-20 max-w-[260px] hidden sm:block">
+      <div className="absolute bottom-8 right-6 md:bottom-10 md:right-10 z-20 w-[280px] hidden lg:block">
         <div
           key={reviewIdx}
-          className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg px-3 py-2 shadow-lg animate-fade-in-review"
+          className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 shadow-xl animate-fade-in-review"
         >
           <div className="flex items-center gap-1 mb-1">
             {[...Array(5)].map((_, i) => (
