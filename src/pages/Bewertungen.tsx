@@ -49,7 +49,7 @@ const reviews = [
     date: "vor 2 Monaten",
     text: "Vom ersten Beratungsgespräch bis zur festen Spange alles top organisiert. Sehr saubere, helle Praxis und ein Team, das einem ehrlich jede Frage beantwortet.",
     image: imgTooth,
-    imageAlt: "Zahnmodell aus Keramik",
+    imageAlt: "Kindermund mit bunter fester Zahnspange",
   },
   {
     name: "Jasmin R.",
