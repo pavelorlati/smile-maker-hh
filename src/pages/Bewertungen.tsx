@@ -1,6 +1,10 @@
 import Layout from "@/components/Layout";
 import CTABanner from "@/components/CTABanner";
 import { Star, ExternalLink, MessageSquare, Quote } from "lucide-react";
+import bgAbstract from "@/assets/reviews-bg-abstract.jpg";
+import imgAligners from "@/assets/reviews-aligners.jpg";
+import imgTooth from "@/assets/reviews-tooth-model.jpg";
+import imgFlowers from "@/assets/reviews-flowers.jpg";
 
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?q=Kieferorthop%C3%A4die+Dr.+Negar+Ajoudani+Bergedorf";
@@ -14,6 +18,8 @@ const reviews = [
     rating: 5,
     date: "vor 2 Wochen",
     text: "Frau Dr. Ajoudani und ihr Team sind einfach wunderbar. Meine Tochter hatte vorher Angst vor dem Zahnarzt – hier geht sie jetzt gerne hin. Alles wird ruhig und kindgerecht erklärt.",
+    image: imgFlowers,
+    imageAlt: "Blumenstrauß am Empfang der Praxis",
   },
   {
     name: "Markus B.",
@@ -21,6 +27,8 @@ const reviews = [
     rating: 5,
     date: "vor 1 Monat",
     text: "Sehr kompetente Beratung und moderne Praxis. Die Behandlung mit Alignern verlief absolut reibungslos. Termine immer pünktlich, Team super freundlich.",
+    image: imgAligners,
+    imageAlt: "Transparente Aligner Zahnschiene",
   },
   {
     name: "Lena H.",
@@ -35,6 +43,8 @@ const reviews = [
     rating: 5,
     date: "vor 2 Monaten",
     text: "Vom ersten Beratungsgespräch bis zur festen Spange alles top organisiert. Sehr saubere, helle Praxis und ein Team, das einem ehrlich jede Frage beantwortet.",
+    image: imgTooth,
+    imageAlt: "Zahnmodell aus Keramik",
   },
   {
     name: "Jasmin R.",
@@ -54,11 +64,22 @@ const reviews = [
 
 const Bewertungen = () => {
   const avgRating = 5.0;
-  const totalReviews = reviews.length;
 
   return (
     <Layout>
-      <section className="py-16 md:py-24">
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        {/* Soft abstract background */}
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 opacity-40"
+          style={{
+            backgroundImage: `url(${bgAbstract})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <div aria-hidden className="absolute inset-0 -z-10 bg-background/70" />
+
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <span className="section-badge mb-3">Google Bewertungen</span>
@@ -74,7 +95,7 @@ const Bewertungen = () => {
           </div>
 
           {/* Summary card */}
-          <div className="max-w-3xl mx-auto bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm text-center mb-10">
+          <div className="max-w-3xl mx-auto bg-card/90 backdrop-blur border border-border rounded-2xl p-6 md:p-8 shadow-sm text-center mb-10">
             <div className="flex items-center justify-center gap-3 mb-2">
               <span className="text-4xl font-display font-bold text-foreground">
                 {avgRating.toFixed(1)}
@@ -95,24 +116,39 @@ const Bewertungen = () => {
             {reviews.map((review, idx) => (
               <article
                 key={idx}
-                className="bubble-card bg-card border border-border rounded-2xl p-6 shadow-sm flex flex-col"
+                className="bubble-card bg-card/95 backdrop-blur border border-border rounded-2xl shadow-sm flex flex-col overflow-hidden"
               >
-                <Quote className="h-6 w-6 text-primary/40 mb-3" />
-                <div className="flex gap-0.5 mb-3" aria-label={`${review.rating} von 5 Sternen`}>
-                  {Array.from({ length: review.rating }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-sm text-foreground/85 leading-relaxed mb-5 flex-1">
-                  „{review.text}"
-                </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-border">
-                  <div className="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-semibold">
-                    {review.initials}
+                {review.image && (
+                  <div className="relative h-36 w-full overflow-hidden">
+                    <img
+                      src={review.image}
+                      alt={review.imageAlt ?? ""}
+                      loading="lazy"
+                      width={1024}
+                      height={768}
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/70 via-card/10 to-transparent" />
                   </div>
-                  <div className="text-left">
-                    <p className="text-sm font-semibold text-foreground">{review.name}</p>
-                    <p className="text-xs text-muted-foreground">{review.date}</p>
+                )}
+                <div className="p-6 flex flex-col flex-1">
+                  <Quote className="h-6 w-6 text-primary/40 mb-3" />
+                  <div className="flex gap-0.5 mb-3" aria-label={`${review.rating} von 5 Sternen`}>
+                    {Array.from({ length: review.rating }).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-sm text-foreground/85 leading-relaxed mb-5 flex-1">
+                    „{review.text}"
+                  </p>
+                  <div className="flex items-center gap-3 pt-4 border-t border-border">
+                    <div className="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm font-semibold">
+                      {review.initials}
+                    </div>
+                    <div className="text-left">
+                      <p className="text-sm font-semibold text-foreground">{review.name}</p>
+                      <p className="text-xs text-muted-foreground">{review.date}</p>
+                    </div>
                   </div>
                 </div>
               </article>
