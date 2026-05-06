@@ -3,7 +3,7 @@ import CTABanner from "@/components/CTABanner";
 import { Star, ExternalLink, MessageSquare, Quote } from "lucide-react";
 import bgAbstract from "@/assets/reviews-bg-abstract.jpg";
 import imgAligners from "@/assets/reviews-aligners.jpg";
-import imgTooth from "@/assets/reviews-tooth-model.jpg";
+import imgTooth from "@/assets/reviews-braces-mouth.jpg";
 import imgFlowers from "@/assets/reviews-flowers.jpg";
 import imgFlowerSingle from "@/assets/reviews-flower-single.jpg";
 import imgThankyou from "@/assets/reviews-thankyou-card.jpg";
@@ -49,7 +49,7 @@ const reviews = [
     date: "vor 2 Monaten",
     text: "Vom ersten Beratungsgespräch bis zur festen Spange alles top organisiert. Sehr saubere, helle Praxis und ein Team, das einem ehrlich jede Frage beantwortet.",
     image: imgTooth,
-    imageAlt: "Zahnmodell aus Keramik",
+    imageAlt: "Kindermund mit bunter fester Zahnspange",
   },
   {
     name: "Jasmin R.",
