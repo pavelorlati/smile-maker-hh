@@ -53,13 +53,6 @@ const Navbar = () => {
           >
             <Instagram className="h-5 w-5" />
           </a>
-          <a
-            href="tel:+49407245241"
-            aria-label="Anrufen 040 7 24 52 41"
-            className="inline-flex items-center justify-center h-10 w-10 rounded-full btn-brand text-white shadow-sm hover:opacity-90 transition-opacity"
-          >
-            <Phone className="h-4 w-4" />
-          </a>
           <Button asChild className="rounded-full btn-brand">
             <a href={DOCTOLIB_URL} target="_blank" rel="noopener noreferrer">
               Termin vereinbaren
