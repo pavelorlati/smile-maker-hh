@@ -270,12 +270,29 @@ const Formulare = () => {
               <FormularField label="Versicherte Person, falls abweichend" value={anamnese.versichert_vorname} onChange={(value) => updateAnamnese("versichert_vorname", value)} />
               <FormularField label="Allergien / Details" value={anamnese.allergien_details} onChange={(value) => updateAnamnese("allergien_details", value)} />
               <FormularField label="Bemerkungen" value={anamnese.bemerkungen} onChange={(value) => updateAnamnese("bemerkungen", value)} textarea />
-              <div className="grid sm:grid-cols-2 gap-3">
-                {anamneseCheckboxes.map(([name, label]) => (
-                  <label key={name} className="flex items-center gap-2 text-sm text-foreground">
-                    <Checkbox checked={Boolean(checks[name])} onCheckedChange={(checked) => toggle(name, checked === true)} />
-                    {label}
-                  </label>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {anamneseGroups.map((group) => (
+                  <div key={group.title} className="space-y-2">
+                    <p className="text-sm font-medium text-foreground">{group.title}</p>
+                    <div className="flex flex-wrap gap-4">
+                      {group.options.map((opt) => (
+                        <label key={opt.name} className="flex items-center gap-2 text-sm text-foreground">
+                          <Checkbox
+                            checked={Boolean(checks[opt.name])}
+                            onCheckedChange={(checked) => {
+                              setChecks((current) => {
+                                const next = { ...current };
+                                group.options.forEach((o) => { next[o.name] = false; });
+                                if (checked === true) next[opt.name] = true;
+                                return next;
+                              });
+                            }}
+                          />
+                          {opt.label}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
               <Button type="button" onClick={downloadAnamnese} disabled={loading === "anamnese"} className="w-full">
