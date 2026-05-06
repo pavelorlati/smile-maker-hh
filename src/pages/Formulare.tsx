@@ -156,6 +156,7 @@ const Formulare = () => {
   const [datenschutz, setDatenschutz] = useState(emptyDatenschutz);
   const [checks, setChecks] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState<string | null>(null);
+  const [download, setDownload] = useState<DownloadResult | null>(null);
 
   const updateAnamnese = (name: keyof AnamneseData, value: string) => setAnamnese((current) => ({ ...current, [name]: value }));
   const updateDatenschutz = (name: keyof DatenschutzData, value: string) => setDatenschutz((current) => ({ ...current, [name]: value }));
@@ -165,7 +166,8 @@ const Formulare = () => {
     setLoading("anamnese");
     try {
       const pdf = await fillPdf("/dokumente/Anamnesebogen.pdf", anamnese, checks);
-      savePdf(pdf, "Anamnesebogen-ausgefuellt.pdf");
+      const result = await savePdf(pdf, "Anamnesebogen-ausgefuellt.pdf");
+      if (result.url) setDownload(result);
       toast({ title: "Anamnesebogen gespeichert", description: "Die PDF wurde mit Ihren Angaben heruntergeladen und bleibt bearbeitbar." });
     } finally {
       setLoading(null);
@@ -176,7 +178,8 @@ const Formulare = () => {
     setLoading("datenschutz");
     try {
       const pdf = await fillPdf("/dokumente/Datenschutz.pdf", datenschutz, checks);
-      savePdf(pdf, "Datenschutz-ausgefuellt.pdf");
+      const result = await savePdf(pdf, "Datenschutz-ausgefuellt.pdf");
+      if (result.url) setDownload(result);
       toast({ title: "Datenschutzerklärung gespeichert", description: "Die PDF wurde mit Ihren Angaben heruntergeladen und bleibt bearbeitbar." });
     } finally {
       setLoading(null);
@@ -191,6 +194,17 @@ const Formulare = () => {
             <span className="section-badge mb-3">Formulare</span>
             <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground mt-3">Anamnesebogen & Datenschutz ausfüllen</h1>
           </div>
+
+          {download?.url && (
+            <a
+              href={download.url}
+              download={download.filename}
+              className="mb-6 flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground"
+            >
+              <Download className="h-4 w-4" />
+              PDF in Dateien speichern: {download.filename}
+            </a>
+          )}
 
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-6">
             <form className="bg-card border border-border rounded-lg p-5 md:p-7 space-y-6" onSubmit={(event) => event.preventDefault()}>
