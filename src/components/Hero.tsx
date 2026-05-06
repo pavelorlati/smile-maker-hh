@@ -33,23 +33,23 @@ const Hero = () => {
       <div className="absolute inset-0 bg-foreground/60" />
 
       {/* Floating animated review badge */}
-      <div className="absolute top-24 md:top-28 right-4 md:right-8 z-20 max-w-[260px] hidden sm:block">
+      <div className="absolute bottom-8 right-6 md:bottom-10 md:right-10 z-20 w-[280px] hidden lg:block">
         <div
           key={reviewIdx}
-          className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg px-3 py-2 shadow-lg animate-fade-in-review"
+          className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-3 shadow-xl animate-fade-in-review"
         >
-          <div className="flex items-center gap-1 mb-1">
+          <div className="flex items-center gap-1 mb-1.5">
             {[...Array(5)].map((_, i) => (
               <Star
                 key={i}
-                className="h-3 w-3 fill-yellow-400 text-yellow-400 animate-star-twinkle"
+                className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400 animate-star-twinkle"
                 style={{ animationDelay: `${i * 0.15}s` }}
               />
             ))}
-            <span className="text-[10px] text-white/70 ml-1">Google</span>
+            <span className="text-[11px] text-white/70 ml-1">Google</span>
           </div>
-          <p className="text-[11px] leading-snug text-white/90 line-clamp-2">"{review.text}"</p>
-          <p className="text-[10px] text-white/60 mt-0.5">— {review.name}</p>
+          <p className="text-[12px] leading-snug text-white/90 line-clamp-3">"{review.text}"</p>
+          <p className="text-[11px] text-white/60 mt-1">— {review.name}</p>
         </div>
       </div>
 
