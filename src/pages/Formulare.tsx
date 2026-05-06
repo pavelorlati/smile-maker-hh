@@ -39,6 +39,8 @@ type DatenschutzData = {
   notizen_datenschutz: string;
 };
 
+type DownloadResult = { url: string; filename: string };
+
 const emptyAnamnese: AnamneseData = {
   patient_vorname: "",
   patient_nachname: "",
@@ -96,9 +98,16 @@ const datenschutzCheckboxes = [
   ["einwilligung_kontakt", "Kontakt per Telefon oder E-Mail"],
 ] as const;
 
-const savePdf = (bytes: Uint8Array, filename: string) => {
+const savePdf = async (bytes: Uint8Array, filename: string): Promise<DownloadResult> => {
   const data = new Uint8Array(bytes);
   const blob = new Blob([data.buffer as ArrayBuffer], { type: "application/pdf" });
+  const file = new File([blob], filename, { type: "application/pdf" });
+
+  if (navigator.canShare?.({ files: [file] })) {
+    await navigator.share({ files: [file], title: filename });
+    return { url: "", filename };
+  }
+
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
@@ -106,7 +115,7 @@ const savePdf = (bytes: Uint8Array, filename: string) => {
   document.body.appendChild(link);
   link.click();
   link.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  return { url, filename };
 };
 
 const fillPdf = async (source: string, fields: Record<string, string>, checks: Record<string, boolean>) => {
