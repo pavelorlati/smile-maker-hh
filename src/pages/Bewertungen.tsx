@@ -3,7 +3,7 @@ import CTABanner from "@/components/CTABanner";
 import { Star, ExternalLink, MessageSquare, Quote } from "lucide-react";
 import bgAbstract from "@/assets/reviews-bg-abstract.jpg";
 import imgAligners from "@/assets/reviews-aligners.jpg";
-import imgTooth from "@/assets/reviews-tooth-model.jpg";
+import imgTooth from "@/assets/reviews-braces-mouth.jpg";
 import imgFlowers from "@/assets/reviews-flowers.jpg";
 import imgFlowerSingle from "@/assets/reviews-flower-single.jpg";
 import imgThankyou from "@/assets/reviews-thankyou-card.jpg";
