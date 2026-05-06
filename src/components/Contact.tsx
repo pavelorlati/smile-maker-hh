@@ -128,9 +128,10 @@ const Contact = () => {
               <div>
                 <h3 className="text-lg md:text-xl font-display font-semibold text-foreground">Anamnesebogen & Datenschutz</h3>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Sparen Sie Zeit beim ersten Termin: Laden Sie die Formulare bequem von zuhause herunter,
-                  füllen Sie sie digital (z. B. mit Apple Pencil oder Tastatur in einer PDF-App) oder ausgedruckt aus
-                  – und schicken Sie sie uns per E-Mail zurück oder bringen Sie sie ausgefüllt mit.
+                  Sparen Sie Zeit beim ersten Termin: Laden Sie die Formulare bequem auf Ihr Gerät herunter
+                  und füllen Sie die leeren Felder direkt am Computer, Tablet oder Smartphone aus –
+                  ganz ohne Drucken. Senden Sie uns die ausgefüllten PDFs anschließend per E-Mail zurück
+                  oder bringen Sie sie ausgedruckt zum Termin mit.
                 </p>
               </div>
             </div>
