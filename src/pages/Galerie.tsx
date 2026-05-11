@@ -1,6 +1,18 @@
 import Layout from "@/components/Layout";
 import CTABanner from "@/components/CTABanner";
-import { Camera } from "lucide-react";
+import zahnarztstuhl from "@/assets/gallery-zahnarztstuhl.jpg";
+import empfang from "@/assets/gallery-empfang-wartebereich.jpg";
+import tresen from "@/assets/gallery-tresen.jpg";
+import wartezimmer from "@/assets/gallery-wartezimmer.jpg";
+import bonsai from "@/assets/gallery-bonsai-instagram.jpg";
+
+const images = [
+  { src: empfang, alt: "Empfang und Wartebereich der Praxis Dr. Ajoudani" },
+  { src: tresen, alt: "Moderner Empfangstresen" },
+  { src: wartezimmer, alt: "Helles Wartezimmer mit Tageslicht" },
+  { src: zahnarztstuhl, alt: "Modernes Behandlungszimmer mit Behandlungsstuhl" },
+  { src: bonsai, alt: "Bonsai im Wartebereich mit Instagram-Hinweis" },
+];
 
 const Galerie = () => {
   return (
@@ -19,17 +31,20 @@ const Galerie = () => {
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto bg-secondary border border-border rounded-2xl p-10 md:p-14 text-center">
-            <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
-              <Camera className="h-7 w-7 text-primary" />
-            </div>
-            <h2 className="text-xl md:text-2xl font-display font-bold text-foreground mb-3">
-              Bilder folgen in Kürze
-            </h2>
-            <p className="text-muted-foreground text-sm md:text-base max-w-lg mx-auto">
-              Wir bereiten gerade aktuelle Fotos unserer Räumlichkeiten vor – Empfang,
-              Wartebereich und Behandlungszimmer. Schauen Sie bald wieder vorbei!
-            </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+            {images.map((img) => (
+              <div
+                key={img.src}
+                className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm group"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
