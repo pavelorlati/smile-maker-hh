@@ -5,12 +5,18 @@ import empfang from "@/assets/gallery-empfang-wartebereich.jpg";
 import tresen from "@/assets/gallery-tresen.jpg";
 import wartezimmer from "@/assets/gallery-wartezimmer.jpg";
 import bonsai from "@/assets/gallery-bonsai-instagram.jpg";
+import aligners from "@/assets/reviews-aligners.jpg";
+import braces from "@/assets/reviews-braces-mouth.jpg";
+import toothModel from "@/assets/reviews-tooth-model.jpg";
 
 const images = [
   { src: empfang, alt: "Empfang und Wartebereich der Praxis Dr. Ajoudani" },
   { src: tresen, alt: "Moderner Empfangstresen" },
   { src: wartezimmer, alt: "Helles Wartezimmer mit Tageslicht" },
   { src: zahnarztstuhl, alt: "Modernes Behandlungszimmer mit Behandlungsstuhl" },
+  { src: aligners, alt: "Transparente Aligner-Schienen für die Kieferorthopädie" },
+  { src: braces, alt: "Festsitzende Zahnspange – Brackets in der Kieferorthopädie" },
+  { src: toothModel, alt: "Kieferorthopädisches Zahnmodell" },
   { src: bonsai, alt: "Bonsai im Wartebereich mit Instagram-Hinweis" },
 ];
 
