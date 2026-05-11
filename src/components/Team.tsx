@@ -3,6 +3,42 @@ import teamImg from "@/assets/team-doctor.jpg";
 
 const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopaedie-ajoudani-negar?utm_campaign=website-button&utm_source=kieferorthopaedie-ajoudani-negar-website-button&utm_medium=referral&utm_content=option-8&utm_term=kieferorthopaedie-ajoudani-negar";
 
+type Member = {
+  name: string;
+  role: string;
+};
+
+const teamGroups: { title: string; members: Member[] }[] = [
+  {
+    title: "Anmeldung / Praxismanagerin / ZFA",
+    members: [{ name: "Hümi", role: "Anmeldung & Praxismanagement" }],
+  },
+  {
+    title: "Verwaltungsfachangestellte / ZMP",
+    members: [{ name: "Stephanie", role: "Verwaltung & Prophylaxe" }],
+  },
+  {
+    title: "Zahnmedizinische Fachangestellte",
+    members: [{ name: "Doreen", role: "ZFA" }],
+  },
+  {
+    title: "Auszubildende",
+    members: [
+      { name: "Masome", role: "Auszubildende" },
+      { name: "Lana", role: "Auszubildende" },
+      { name: "Phuong", role: "Auszubildende" },
+    ],
+  },
+];
+
+const initials = (name: string) =>
+  name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+
 const Team = () => {
   return (
     <section className="py-16 md:py-24">
@@ -15,21 +51,28 @@ const Team = () => {
           <div className="section-divider mt-4" />
         </div>
 
-        <div className="max-w-lg mx-auto">
+        {/* Fachärztin */}
+        <div className="max-w-lg mx-auto mb-16">
+          <div className="text-center mb-4">
+            <span className="text-xs uppercase tracking-widest text-primary font-semibold">Fachärztin</span>
+          </div>
           <div tabIndex={0} className="bubble-card bg-card border border-border p-8 md:p-10 text-center shadow-sm hover:shadow-xl">
             <img
               src={teamImg}
-              alt="Dr. Negar Ajoudani – Fachzahnärztin für Kieferorthopädie"
+              alt="Dr. med. dent. Negar Ajoudani – Fachzahnärztin für Kieferorthopädie"
               width={1024}
               height={1024}
               loading="lazy"
               className="w-56 h-56 rounded-full object-cover object-top mx-auto mb-6"
             />
-            <h3 className="text-2xl font-display font-bold text-foreground mb-1">Dr. med. dent. Negar Ajoudani</h3>
+            <h3 className="text-2xl font-display font-bold text-foreground mb-1">
+              Dr. med. dent. Negar Ajoudani
+            </h3>
+            <p className="text-muted-foreground text-sm mb-1">(Dr. Neggy)</p>
             <p className="text-primary font-semibold mb-5">Fachzahnärztin für Kieferorthopädie</p>
             <p className="text-muted-foreground leading-relaxed mb-8 text-sm max-w-md mx-auto">
-              Mit Kompetenz, Einfühlungsvermögen und modernsten Behandlungsmethoden 
-              begleitet Dr. Ajoudani Patienten jeden Alters auf dem Weg zu einem 
+              Mit Kompetenz, Einfühlungsvermögen und modernsten Behandlungsmethoden
+              begleitet Dr. Ajoudani Patienten jeden Alters auf dem Weg zu einem
               gesunden, schönen Lächeln.
             </p>
             <a
@@ -42,6 +85,36 @@ const Team = () => {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
+        </div>
+
+        {/* Weiteres Team */}
+        <div className="max-w-5xl mx-auto space-y-12">
+          {teamGroups.map((group) => (
+            <div key={group.title}>
+              <div className="text-center mb-6">
+                <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground">
+                  {group.title}
+                </h3>
+                <div className="section-divider mt-3" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {group.members.map((m) => (
+                  <div
+                    key={m.name}
+                    className="bubble-card bg-card border border-border p-6 text-center shadow-sm hover:shadow-lg"
+                  >
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-4 flex items-center justify-center text-primary font-display font-bold text-xl">
+                      {initials(m.name)}
+                    </div>
+                    <h4 className="text-lg font-display font-semibold text-foreground mb-1">
+                      {m.name}
+                    </h4>
+                    <p className="text-primary text-sm font-medium">{m.role}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
