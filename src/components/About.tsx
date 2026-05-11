@@ -1,5 +1,5 @@
 import { Award, Heart, Clock, ArrowRight } from "lucide-react";
-import aboutImg from "@/assets/about-practice.jpg";
+import aboutImg from "@/assets/gallery-wartezimmer.jpg";
 
 const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopaedie-ajoudani-negar?utm_campaign=website-button&utm_source=kieferorthopaedie-ajoudani-negar-website-button&utm_medium=referral&utm_content=option-8&utm_term=kieferorthopaedie-ajoudani-negar";
 
