@@ -134,9 +134,11 @@ const Galerie = () => {
               <div className="rounded-2xl overflow-hidden border border-border shadow-sm bg-card max-w-4xl mx-auto">
                 <video
                   src="/videos/wartezimmer.mp4"
-                  controls
+                  autoPlay
+                  loop
+                  muted
                   playsInline
-                  preload="metadata"
+                  preload="auto"
                   className="w-full h-auto block"
                   aria-label="Videorundgang durch die Praxis Dr. Ajoudani"
                 />
