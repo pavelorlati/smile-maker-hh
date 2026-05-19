@@ -78,6 +78,7 @@ const Index = () => {
       />
 
       <CTABanner />
+      </main>
       <Footer />
       <FloatingPhone />
       <AccessibilityInfo />
