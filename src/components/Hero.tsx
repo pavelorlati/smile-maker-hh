@@ -1,6 +1,6 @@
 import { ArrowRight, Phone, Star, Shield, Clock, CalendarCheck } from "lucide-react";
 import { useEffect, useState } from "react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero-bg.webp";
 
 const heroReviews = [
   { name: "Sandra K.", text: "Wunderbares Team – meine Tochter geht gerne hin." },
@@ -28,6 +28,8 @@ const Hero = () => {
         alt="Moderne Kieferorthopädie-Praxis in Hamburg Bergedorf"
         width={1920}
         height={1080}
+        fetchPriority="high"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-foreground/60" />
