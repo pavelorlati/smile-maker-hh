@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 
 @tailwind base;
 @tailwind components;
@@ -110,8 +110,8 @@
 @layer components {
   .section-badge {
     @apply inline-block px-4 py-1.5 rounded-md text-xs font-semibold uppercase tracking-wider;
-    background: hsl(var(--primary) / 0.08);
-    color: hsl(var(--primary));
+    background: hsl(165 65% 92%);
+    color: hsl(165 80% 22%);
   }
 
   .section-divider {

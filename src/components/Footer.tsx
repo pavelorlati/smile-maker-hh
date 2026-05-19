@@ -6,19 +6,19 @@ const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopa
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground text-background/80 py-16">
+    <footer className="bg-foreground text-background/90 py-16">
       <div className="container mx-auto px-4">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
-            <img src={logo} alt="Dr. med. dent. Negar Ajoudani" className="h-16 w-auto mb-4 bg-white/95 rounded-md p-2" />
-            <p className="text-sm leading-relaxed text-background/60">
+            <img src={logo} alt="Dr. med. dent. Negar Ajoudani" width="240" height="64" className="h-16 w-auto mb-4 bg-white/95 rounded-md p-2" />
+            <p className="text-sm leading-relaxed text-background/80">
               Moderne Kieferorthopädie für die ganze Familie in Hamburg-Bergedorf.
             </p>
-            <p className="text-xs text-background/50 mt-2">Dr. med. dent. Negar Ajoudani</p>
+            <p className="text-xs text-background/70 mt-2">Dr. med. dent. Negar Ajoudani</p>
           </div>
 
           <div>
-            <h4 className="font-semibold text-background mb-4">Kontakt</h4>
+            <h3 className="font-semibold text-background mb-4">Kontakt</h3>
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" />
@@ -42,7 +42,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-background mb-4">Schnellzugriff</h4>
+            <h3 className="font-semibold text-background mb-4">Schnellzugriff</h3>
             <div className="space-y-2 text-sm">
               <Link to="/leistungen" className="block hover:text-background transition-colors">Leistungen</Link>
               <Link to="/ueber-uns" className="block hover:text-background transition-colors">Über uns</Link>
@@ -56,21 +56,21 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-background mb-4">Rechtliches</h4>
+            <h3 className="font-semibold text-background mb-4">Rechtliches</h3>
             <div className="space-y-2 text-sm">
               <Link to="/impressum" className="block hover:text-background transition-colors">Impressum</Link>
               <Link to="/datenschutz" className="block hover:text-background transition-colors">Datenschutzerklärung</Link>
             </div>
 
-            <h4 className="font-semibold text-background mb-3 mt-6">Öffnungszeiten</h4>
-            <div className="space-y-1 text-sm text-background/60">
+            <h3 className="font-semibold text-background mb-3 mt-6">Öffnungszeiten</h3>
+            <div className="space-y-1 text-sm text-background/80">
               <p>Mo, Di, Do: 09:00 – 12:00, 13:30 – 17:00</p>
               <p>Mi, Fr: 09:00 – 12:00</p>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-background/10 pt-8 text-center text-sm text-background/40">
+        <div className="border-t border-background/20 pt-8 text-center text-sm text-background/70">
           <p>© {new Date().getFullYear()} Kieferorthopädie Bergedorf · Dr. med. dent. Negar Ajoudani. Alle Rechte vorbehalten.</p>
         </div>
       </div>

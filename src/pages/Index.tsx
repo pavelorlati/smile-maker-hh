@@ -33,6 +33,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
+      <main>
       <Hero />
 
       <section className="py-16 md:py-24">
@@ -77,6 +78,7 @@ const Index = () => {
       />
 
       <CTABanner />
+      </main>
       <Footer />
       <FloatingPhone />
       <AccessibilityInfo />

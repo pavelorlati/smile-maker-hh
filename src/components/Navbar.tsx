@@ -24,7 +24,7 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between gap-6 h-20 md:h-24 px-4">
         <Link to="/" className="flex-shrink-0 min-w-0">
-          <img src={logo} alt="Dr. med. dent. Negar Ajoudani – Kieferorthopädie Bergedorf" className="h-16 md:h-[5rem] lg:h-[5.5rem] w-auto max-w-[260px] md:max-w-[400px] lg:max-w-[480px]" />
+          <img src={logo} alt="Dr. med. dent. Negar Ajoudani – Kieferorthopädie Bergedorf" width="480" height="88" className="h-16 md:h-[5rem] lg:h-[5.5rem] w-auto max-w-[260px] md:max-w-[400px] lg:max-w-[480px]" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8 flex-1 justify-center">
