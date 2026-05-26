@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, ArrowRight, CalendarCheck, FileText, Download, PencilLine, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowRight, CalendarCheck, FileText, Download, PencilLine, Send, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -25,7 +25,29 @@ type MailProvider =
   | "mailcom"
   | "default";
 
-const buildMailLink = (provider: MailProvider, to: string, subject: string, body: string) => {
+const isIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent);
+const isAndroid = () => /Android/i.test(navigator.userAgent);
+const isMobile = () => isIOS() || isAndroid();
+
+// Native app deep links (used on mobile first, web fallback after timeout)
+const buildAppLink = (provider: MailProvider, to: string, subject: string, body: string): string | null => {
+  const s = encodeURIComponent(subject);
+  const b = encodeURIComponent(body);
+  switch (provider) {
+    case "gmail":
+      return `googlegmail://co?to=${to}&subject=${s}&body=${b}`;
+    case "outlook":
+      return `ms-outlook://compose?to=${to}&subject=${s}&body=${b}`;
+    case "yahoo":
+      return `ymail://mail/compose?to=${to}&subject=${s}&body=${b}`;
+    case "proton":
+      return isIOS() ? `protonmail://${to}?subject=${s}&body=${b}` : null;
+    default:
+      return null;
+  }
+};
+
+const buildWebLink = (provider: MailProvider, to: string, subject: string, body: string) => {
   const s = encodeURIComponent(subject);
   const b = encodeURIComponent(body);
   const t = encodeURIComponent(to);
@@ -48,6 +70,7 @@ const buildMailLink = (provider: MailProvider, to: string, subject: string, body
 const ContactForm = () => {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", subject: "Erstberatung", message: "" });
   const [open, setOpen] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
   const mailSubject = `${form.subject} – Anfrage von ${form.firstName} ${form.lastName}`.trim();
   const mailBody = `Guten Tag,
@@ -61,31 +84,56 @@ E-Mail: ${form.email}`;
   const isValid = form.firstName.trim() && form.lastName.trim() && form.email.trim() && form.message.trim();
 
   const openWith = (provider: MailProvider) => {
-    const url = buildMailLink(provider, PRAXIS_EMAIL, mailSubject, mailBody);
-    const isWeb = provider === "gmail" || provider === "outlook" || provider === "yahoo" || provider === "proton" || provider === "yandex";
-    if (isWeb) {
-      window.open(url, "_blank", "noopener,noreferrer");
+    const webUrl = buildWebLink(provider, PRAXIS_EMAIL, mailSubject, mailBody);
+    const appUrl = buildAppLink(provider, PRAXIS_EMAIL, mailSubject, mailBody);
+    const mobile = isMobile();
+
+    if (mobile && appUrl) {
+      // Try app deep link, fall back to web if app not installed
+      const start = Date.now();
+      const fallback = setTimeout(() => {
+        if (Date.now() - start < 2000) {
+          if (provider === "gmail" || provider === "outlook" || provider === "yahoo" || provider === "proton" || provider === "yandex") {
+            window.open(webUrl, "_blank", "noopener,noreferrer");
+          } else {
+            window.location.href = webUrl;
+          }
+        }
+      }, 1200);
+      // Page-hide cancels fallback (means app opened)
+      const cancel = () => { clearTimeout(fallback); window.removeEventListener("pagehide", cancel); document.removeEventListener("visibilitychange", cancel); };
+      window.addEventListener("pagehide", cancel);
+      document.addEventListener("visibilitychange", cancel);
+      window.location.href = appUrl;
     } else {
-      window.location.href = url;
+      const isWeb = !mobile && (provider === "gmail" || provider === "outlook" || provider === "yahoo" || provider === "proton" || provider === "yandex");
+      if (isWeb) {
+        window.open(webUrl, "_blank", "noopener,noreferrer");
+      } else {
+        window.location.href = webUrl;
+      }
     }
     setOpen(false);
   };
 
   const providers: { id: MailProvider; label: string; hint: string }[] = [
     { id: "apple", label: "Apple Mail", hint: "iPhone, iPad & Mac" },
-    { id: "gmail", label: "Gmail", hint: "Google Mail im Browser" },
-    { id: "outlook", label: "Outlook", hint: "Microsoft / Hotmail / Live" },
-    { id: "yahoo", label: "Yahoo Mail", hint: "Im Browser öffnen" },
+    { id: "gmail", label: "Gmail", hint: "App oder Browser" },
+    { id: "outlook", label: "Outlook", hint: "App oder Browser" },
+    { id: "yahoo", label: "Yahoo Mail", hint: "App oder Browser" },
     { id: "icloud", label: "iCloud Mail", hint: "Apple iCloud Konto" },
     { id: "gmx", label: "GMX", hint: "Über Standard-Mailprogramm" },
     { id: "webde", label: "WEB.DE", hint: "Über Standard-Mailprogramm" },
-    { id: "proton", label: "Proton Mail", hint: "Verschlüsselt im Browser" },
+    { id: "proton", label: "Proton Mail", hint: "Verschlüsselt – App oder Browser" },
     { id: "aol", label: "AOL Mail", hint: "Über Standard-Mailprogramm" },
     { id: "zoho", label: "Zoho Mail", hint: "Über Standard-Mailprogramm" },
     { id: "yandex", label: "Yandex Mail", hint: "Im Browser öffnen" },
     { id: "mailcom", label: "mail.com", hint: "Über Standard-Mailprogramm" },
     { id: "default", label: "Anderes Programm", hint: "System-Standard verwenden" },
   ];
+
+  const PRIMARY_COUNT = 4;
+  const visibleProviders = showAll ? providers : providers.slice(0, PRIMARY_COUNT);
 
   return (
     <form
