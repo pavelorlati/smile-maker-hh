@@ -1,42 +1,43 @@
 import { ArrowRight } from "lucide-react";
-import imgNeggy from "@/assets/team-neggy.jpg";
-import imgHuemi from "@/assets/team-huemi.jpg";
-import imgStephanie from "@/assets/team-stephanie.jpg";
-import imgDoreen from "@/assets/team-doreen.jpg";
-import imgMasome from "@/assets/team-masome.jpg";
-import imgLana from "@/assets/team-lana.jpg";
-import imgPhuong from "@/assets/team-phuong.jpg";
+import teamImg from "@/assets/team-doctor.jpg";
 
 const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopaedie-ajoudani-negar?utm_campaign=website-button&utm_source=kieferorthopaedie-ajoudani-negar-website-button&utm_medium=referral&utm_content=option-8&utm_term=kieferorthopaedie-ajoudani-negar";
 
 type Member = {
   name: string;
   role: string;
-  image: string;
 };
 
 const teamGroups: { title: string; members: Member[] }[] = [
   {
     title: "Anmeldung / Praxismanagerin / ZFA",
-    members: [{ name: "Hümi", role: "Anmeldung & Praxismanagement", image: imgHuemi }],
+    members: [{ name: "Hümi", role: "Anmeldung & Praxismanagement" }],
   },
   {
     title: "Verwaltungsfachangestellte / ZMP",
-    members: [{ name: "Stephanie", role: "Verwaltung & Prophylaxe", image: imgStephanie }],
+    members: [{ name: "Stephanie", role: "Verwaltung & Prophylaxe" }],
   },
   {
     title: "Zahnmedizinische Fachangestellte",
-    members: [{ name: "Doreen", role: "ZFA", image: imgDoreen }],
+    members: [{ name: "Doreen", role: "ZFA" }],
   },
   {
     title: "Auszubildende",
     members: [
-      { name: "Masome", role: "Auszubildende", image: imgMasome },
-      { name: "Lana", role: "Auszubildende", image: imgLana },
-      { name: "Phuong", role: "Auszubildende", image: imgPhuong },
+      { name: "Masome", role: "Auszubildende" },
+      { name: "Lana", role: "Auszubildende" },
+      { name: "Phuong", role: "Auszubildende" },
     ],
   },
 ];
+
+const initials = (name: string) =>
+  name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
 
 const Team = () => {
   return (
@@ -57,10 +58,12 @@ const Team = () => {
           </div>
           <div tabIndex={0} className="bubble-card bg-card border border-border p-8 md:p-10 text-center shadow-sm hover:shadow-xl">
             <img
-              src={imgNeggy}
+              src={teamImg}
               alt="Dr. med. dent. Negar Ajoudani – Fachzahnärztin für Kieferorthopädie"
+              width={1024}
+              height={1024}
               loading="lazy"
-              className="w-56 h-56 rounded-full object-cover object-top mx-auto mb-6 bg-muted"
+              className="w-56 h-56 rounded-full object-cover object-top mx-auto mb-6"
             />
             <h3 className="text-2xl font-display font-bold text-foreground mb-1">
               Dr. med. dent. Negar Ajoudani
@@ -100,12 +103,9 @@ const Team = () => {
                     key={m.name}
                     className="bubble-card bg-card border border-border p-6 text-center shadow-sm hover:shadow-lg"
                   >
-                    <img
-                      src={m.image}
-                      alt={`${m.name} – ${m.role}`}
-                      loading="lazy"
-                      className="w-28 h-28 rounded-full object-cover mx-auto mb-4 bg-muted"
-                    />
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-4 flex items-center justify-center text-primary font-display font-bold text-xl">
+                      {initials(m.name)}
+                    </div>
                     <h4 className="text-lg font-display font-semibold text-foreground mb-1">
                       {m.name}
                     </h4>
