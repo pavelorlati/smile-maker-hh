@@ -192,7 +192,7 @@ E-Mail: ${form.email}`;
             </DialogDescription>
           </DialogHeader>
           <div className="grid sm:grid-cols-2 gap-2 mt-2 max-h-[60vh] overflow-y-auto pr-1">
-            {providers.map((p) => (
+            {visibleProviders.map((p) => (
               <button
                 key={p.id}
                 type="button"
@@ -211,6 +211,16 @@ E-Mail: ${form.email}`;
                 <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
               </button>
             ))}
+            {!showAll && (
+              <button
+                type="button"
+                onClick={() => setShowAll(true)}
+                className="sm:col-span-2 flex items-center justify-center gap-2 p-3 rounded-md border border-dashed border-primary/40 bg-primary/5 hover:bg-primary/10 transition-colors text-sm font-semibold text-primary"
+              >
+                <ChevronDown className="h-4 w-4" />
+                Weitere Anbieter anzeigen ({providers.length - PRIMARY_COUNT})
+              </button>
+            )}
           </div>
         </DialogContent>
       </Dialog>
