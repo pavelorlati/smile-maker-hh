@@ -183,7 +183,7 @@ E-Mail: ${form.email}`;
         Nach dem Klick wählen Sie Ihr E-Mail-Programm – Ihre Nachricht wird dort vorausgefüllt geöffnet.
       </p>
 
-      <Dialog open={open} onOpenChange={setOpen}>
+      <Dialog open={open} onOpenChange={(v) => { setOpen(v); if (!v) setShowAll(false); }}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle>E-Mail-Programm auswählen</DialogTitle>
