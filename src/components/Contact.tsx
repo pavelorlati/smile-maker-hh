@@ -143,7 +143,7 @@ E-Mail: ${form.email}`;
               Wählen Sie Ihr bevorzugtes E-Mail-Programm. Ihre Nachricht wird dort vorausgefüllt geöffnet – Sie können sie noch prüfen und anschließend absenden.
             </DialogDescription>
           </DialogHeader>
-          <div className="grid gap-2 mt-2">
+          <div className="grid sm:grid-cols-2 gap-2 mt-2 max-h-[60vh] overflow-y-auto pr-1">
             {providers.map((p) => (
               <button
                 key={p.id}
