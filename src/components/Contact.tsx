@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, ArrowRight, CalendarCheck, FileText, Download, PencilLine } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowRight, CalendarCheck, FileText, Download, PencilLine, Send } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopaedie-ajoudani-negar?utm_campaign=website-button&utm_source=kieferorthopaedie-ajoudani-negar-website-button&utm_medium=referral&utm_content=option-8&utm_term=kieferorthopaedie-ajoudani-negar";
 
