@@ -167,19 +167,31 @@ const fillPdf = async (source: string, fields: Record<string, string>, checks: R
   const font = await pdf.embedFont(StandardFonts.Helvetica);
   const form = pdf.getForm();
 
+  // Sorgt dafür, dass PDF-Viewer beim Weiterbearbeiten die Anzeige neu aufbauen
+  const acroForm = (form as unknown as { acroForm: { dict: { set: (k: unknown, v: unknown) => void } } }).acroForm;
+  acroForm.dict.set(PDFName.of("NeedAppearances"), PDFBool.True);
+
   Object.entries(fields).forEach(([name, value]) => {
-    const field = form.getTextField(name);
-    field.setText(value || "");
-    field.updateAppearances(font);
+    try {
+      const field = form.getTextField(name);
+      field.setText(value || "");
+      field.updateAppearances(font);
+    } catch {
+      /* Feld fehlt in diesem PDF – überspringen */
+    }
   });
 
   Object.entries(checks).forEach(([name, checked]) => {
-    const field = form.getCheckBox(name);
-    checked ? field.check() : field.uncheck();
+    try {
+      const field = form.getCheckBox(name);
+      checked ? field.check() : field.uncheck();
+    } catch {
+      /* Checkbox gehört nicht zu diesem PDF – überspringen */
+    }
   });
 
-  form.updateFieldAppearances(font);
-  return pdf.save({ updateFieldAppearances: true });
+  // WICHTIG: Kein form.flatten() – die Felder sollen weiterhin bearbeitbar bleiben
+  return pdf.save({ updateFieldAppearances: false });
 };
 
 const FormularField = ({ label, value, onChange, textarea = false }: { label: string; value: string; onChange: (value: string) => void; textarea?: boolean }) => (
