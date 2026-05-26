@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Download, FileText } from "lucide-react";
-import { PDFDocument, StandardFonts } from "pdf-lib";
+import { PDFBool, PDFDocument, PDFName, StandardFonts } from "pdf-lib";
 import { useState } from "react";
 
 type AnamneseData = {
