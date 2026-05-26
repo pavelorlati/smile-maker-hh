@@ -25,9 +25,9 @@ const Hero = () => {
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
       <img
         src={heroBg}
-        alt="Moderne Kieferorthopädie-Praxis in Hamburg Bergedorf"
-        width={1920}
-        height={1080}
+        alt="Empfang und Wartebereich der Praxis Dr. Ajoudani"
+        width={1086}
+        height={1448}
         fetchPriority="high"
         decoding="async"
         className="absolute inset-0 w-full h-full object-cover"
