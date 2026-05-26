@@ -31,6 +31,7 @@ const buildMailLink = (provider: MailProvider, to: string, subject: string, body
 
 const ContactForm = () => {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", subject: "Erstberatung", message: "" });
+  const [open, setOpen] = useState(false);
 
   const mailSubject = `${form.subject} – Anfrage von ${form.firstName} ${form.lastName}`.trim();
   const mailBody = `Guten Tag,
@@ -44,13 +45,13 @@ E-Mail: ${form.email}`;
   const isValid = form.firstName.trim() && form.lastName.trim() && form.email.trim() && form.message.trim();
 
   const openWith = (provider: MailProvider) => {
-    if (!isValid) return;
     const url = buildMailLink(provider, PRAXIS_EMAIL, mailSubject, mailBody);
     if (provider === "default") {
       window.location.href = url;
     } else {
       window.open(url, "_blank", "noopener,noreferrer");
     }
+    setOpen(false);
   };
 
   const providers: { id: MailProvider; label: string; hint: string }[] = [
@@ -61,7 +62,13 @@ E-Mail: ${form.email}`;
   ];
 
   return (
-    <form onSubmit={(e) => e.preventDefault()} className="bg-card border border-border rounded-lg p-7 space-y-5">
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (isValid) setOpen(true);
+      }}
+      className="bg-card border border-border rounded-lg p-7 space-y-5"
+    >
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <Label htmlFor="firstName">Vorname *</Label>
@@ -90,39 +97,49 @@ E-Mail: ${form.email}`;
         <Textarea id="message" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required maxLength={1000} placeholder="Wie können wir Ihnen helfen?" className="mt-1.5 min-h-[120px]" />
       </div>
 
-      <div className="pt-1">
-        <p className="text-sm font-semibold text-foreground mb-2">Nachricht im E-Mail-Programm öffnen:</p>
-        <p className="text-xs text-muted-foreground mb-3">
-          Wählen Sie Ihr E-Mail-Programm – Ihre Nachricht wird dort vorausgefüllt geöffnet. Sie können sie noch prüfen, anpassen und anschließend absenden.
-        </p>
-        <div className="grid sm:grid-cols-2 gap-2">
-          {providers.map((p) => (
-            <button
-              key={p.id}
-              type="button"
-              disabled={!isValid}
-              onClick={() => openWith(p.id)}
-              className="flex items-center justify-between gap-3 p-3 rounded-md border border-border bg-background hover:bg-primary/5 hover:border-primary/30 transition-colors group text-left disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-background disabled:hover:border-border"
-            >
-              <div className="flex items-center gap-3 min-w-0">
-                <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="h-4 w-4 text-primary" />
+      <button
+        type="submit"
+        disabled={!isValid}
+        className="w-full flex items-center justify-center gap-2 p-3 rounded-md bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <Send className="h-4 w-4" />
+        Nachricht senden
+      </button>
+      <p className="text-xs text-muted-foreground text-center">
+        Nach dem Klick wählen Sie Ihr E-Mail-Programm – Ihre Nachricht wird dort vorausgefüllt geöffnet.
+      </p>
+
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>E-Mail-Programm auswählen</DialogTitle>
+            <DialogDescription>
+              Wählen Sie Ihr bevorzugtes E-Mail-Programm. Ihre Nachricht wird dort vorausgefüllt geöffnet – Sie können sie noch prüfen und anschließend absenden.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="grid gap-2 mt-2">
+            {providers.map((p) => (
+              <button
+                key={p.id}
+                type="button"
+                onClick={() => openWith(p.id)}
+                className="flex items-center justify-between gap-3 p-3 rounded-md border border-border bg-background hover:bg-primary/5 hover:border-primary/30 transition-colors group text-left"
+              >
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="h-4 w-4 text-primary" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-sm font-semibold text-foreground block truncate">{p.label}</span>
+                    <span className="text-xs text-muted-foreground truncate block">{p.hint}</span>
+                  </div>
                 </div>
-                <div className="min-w-0">
-                  <span className="text-sm font-semibold text-foreground block truncate">{p.label}</span>
-                  <span className="text-xs text-muted-foreground truncate block">{p.hint}</span>
-                </div>
-              </div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
-            </button>
-          ))}
-        </div>
-        {!isValid && (
-          <p className="text-xs text-muted-foreground mt-3 text-center">
-            Bitte füllen Sie zuerst die Pflichtfelder aus.
-          </p>
-        )}
-      </div>
+                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
+              </button>
+            ))}
+          </div>
+        </DialogContent>
+      </Dialog>
     </form>
   );
 };
