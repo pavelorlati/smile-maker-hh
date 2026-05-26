@@ -1,16 +1,15 @@
 import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, Send, ArrowRight, CalendarCheck, FileText, Download, PencilLine } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowRight, CalendarCheck, FileText, Download, PencilLine } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopaedie-ajoudani-negar?utm_campaign=website-button&utm_source=kieferorthopaedie-ajoudani-negar-website-button&utm_medium=referral&utm_content=option-8&utm_term=kieferorthopaedie-ajoudani-negar";
 
 const PRAXIS_EMAIL = "praxis@kieferorthopaedie-bergedorf.de";
 
-type MailProvider = "default" | "gmail" | "outlook" | "yahoo" | "apple";
+type MailProvider = "default" | "gmail" | "outlook" | "yahoo";
 
 const buildMailLink = (provider: MailProvider, to: string, subject: string, body: string) => {
   const s = encodeURIComponent(subject);
@@ -23,7 +22,6 @@ const buildMailLink = (provider: MailProvider, to: string, subject: string, body
       return `https://outlook.live.com/mail/0/deeplink/compose?to=${t}&subject=${s}&body=${b}`;
     case "yahoo":
       return `https://compose.mail.yahoo.com/?to=${t}&subject=${s}&body=${b}`;
-    case "apple":
     case "default":
     default:
       return `mailto:${to}?subject=${s}&body=${b}`;
@@ -32,7 +30,6 @@ const buildMailLink = (provider: MailProvider, to: string, subject: string, body
 
 const ContactForm = () => {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", subject: "Erstberatung", message: "" });
-  const [chooserOpen, setChooserOpen] = useState(false);
 
   const mailSubject = `${form.subject} – Anfrage von ${form.firstName} ${form.lastName}`.trim();
   const mailBody = `Guten Tag,
@@ -43,28 +40,27 @@ Mit freundlichen Grüßen
 ${form.firstName} ${form.lastName}
 E-Mail: ${form.email}`;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setChooserOpen(true);
-  };
+  const isValid = form.firstName.trim() && form.lastName.trim() && form.email.trim() && form.message.trim();
 
   const openWith = (provider: MailProvider) => {
+    if (!isValid) return;
     const url = buildMailLink(provider, PRAXIS_EMAIL, mailSubject, mailBody);
-    window.open(url, provider === "default" || provider === "apple" ? "_self" : "_blank", "noopener,noreferrer");
-    setChooserOpen(false);
+    if (provider === "default") {
+      window.location.href = url;
+    } else {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
   };
 
   const providers: { id: MailProvider; label: string; hint: string }[] = [
+    { id: "default", label: "Standard / Apple Mail", hint: "Mail-App auf diesem Gerät" },
     { id: "gmail", label: "Gmail", hint: "Im Browser öffnen" },
-    { id: "apple", label: "Apple Mail / iCloud", hint: "Mail-App auf Mac & iPhone" },
     { id: "outlook", label: "Outlook", hint: "Outlook im Web" },
     { id: "yahoo", label: "Yahoo Mail", hint: "Im Browser öffnen" },
-    { id: "default", label: "Standard E-Mail-Programm", hint: "Auf diesem Gerät eingerichtet" },
   ];
 
   return (
-    <>
-    <form onSubmit={handleSubmit} className="bg-card border border-border rounded-lg p-7 space-y-5">
+    <form onSubmit={(e) => e.preventDefault()} className="bg-card border border-border rounded-lg p-7 space-y-5">
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <Label htmlFor="firstName">Vorname *</Label>
@@ -92,48 +88,41 @@ E-Mail: ${form.email}`;
         <Label htmlFor="message">Nachricht *</Label>
         <Textarea id="message" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required maxLength={1000} placeholder="Wie können wir Ihnen helfen?" className="mt-1.5 min-h-[120px]" />
       </div>
-      <button type="submit" className="w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-md text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 transition-colors group">
-        <Send className="h-4 w-4" />
-        In E-Mail-Programm öffnen
-        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-      </button>
-      <p className="text-xs text-muted-foreground text-center">
-        Ihre Nachricht wird in Ihrem E-Mail-Programm geöffnet – dort können Sie sie prüfen, anpassen und absenden.
-      </p>
-    </form>
 
-    <Dialog open={chooserOpen} onOpenChange={setChooserOpen}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle>E-Mail-Programm wählen</DialogTitle>
-          <DialogDescription>
-            Wählen Sie, womit Ihre Nachricht geöffnet werden soll. Sie können sie dort noch bearbeiten und anschließend absenden.
-          </DialogDescription>
-        </DialogHeader>
-        <div className="grid gap-2 mt-2">
+      <div className="pt-1">
+        <p className="text-sm font-semibold text-foreground mb-2">Nachricht im E-Mail-Programm öffnen:</p>
+        <p className="text-xs text-muted-foreground mb-3">
+          Wählen Sie Ihr E-Mail-Programm – Ihre Nachricht wird dort vorausgefüllt geöffnet. Sie können sie noch prüfen, anpassen und anschließend absenden.
+        </p>
+        <div className="grid sm:grid-cols-2 gap-2">
           {providers.map((p) => (
             <button
               key={p.id}
               type="button"
+              disabled={!isValid}
               onClick={() => openWith(p.id)}
-              className="flex items-center justify-between gap-3 p-4 rounded-md border border-border bg-background hover:bg-primary/5 hover:border-primary/30 transition-colors group text-left"
+              className="flex items-center justify-between gap-3 p-3 rounded-md border border-border bg-background hover:bg-primary/5 hover:border-primary/30 transition-colors group text-left disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-background disabled:hover:border-border"
             >
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Mail className="h-4 w-4 text-primary" />
                 </div>
-                <div>
-                  <span className="text-sm font-semibold text-foreground block">{p.label}</span>
-                  <span className="text-xs text-muted-foreground">{p.hint}</span>
+                <div className="min-w-0">
+                  <span className="text-sm font-semibold text-foreground block truncate">{p.label}</span>
+                  <span className="text-xs text-muted-foreground truncate block">{p.hint}</span>
                 </div>
               </div>
-              <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+              <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
             </button>
           ))}
         </div>
-      </DialogContent>
-    </Dialog>
-    </>
+        {!isValid && (
+          <p className="text-xs text-muted-foreground mt-3 text-center">
+            Bitte füllen Sie zuerst die Pflichtfelder aus.
+          </p>
+        )}
+      </div>
+    </form>
   );
 };
 
