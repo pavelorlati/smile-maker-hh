@@ -10,7 +10,20 @@ const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopa
 
 const PRAXIS_EMAIL = "praxis@kieferorthopaedie-bergedorf.de";
 
-type MailProvider = "default" | "gmail" | "outlook" | "yahoo";
+type MailProvider =
+  | "apple"
+  | "gmail"
+  | "outlook"
+  | "yahoo"
+  | "icloud"
+  | "gmx"
+  | "webde"
+  | "proton"
+  | "aol"
+  | "zoho"
+  | "yandex"
+  | "mailcom"
+  | "default";
 
 const buildMailLink = (provider: MailProvider, to: string, subject: string, body: string) => {
   const s = encodeURIComponent(subject);
@@ -23,7 +36,10 @@ const buildMailLink = (provider: MailProvider, to: string, subject: string, body
       return `https://outlook.live.com/mail/0/deeplink/compose?to=${t}&subject=${s}&body=${b}`;
     case "yahoo":
       return `https://compose.mail.yahoo.com/?to=${t}&subject=${s}&body=${b}`;
-    case "default":
+    case "proton":
+      return `https://mail.proton.me/u/0/inbox?to=${t}&subject=${s}&body=${b}`;
+    case "yandex":
+      return `https://mail.yandex.com/compose?mailto=mailto:${to}?subject=${s}&body=${b}`;
     default:
       return `mailto:${to}?subject=${s}&body=${b}`;
   }
@@ -46,19 +62,29 @@ E-Mail: ${form.email}`;
 
   const openWith = (provider: MailProvider) => {
     const url = buildMailLink(provider, PRAXIS_EMAIL, mailSubject, mailBody);
-    if (provider === "default") {
-      window.location.href = url;
-    } else {
+    const isWeb = provider === "gmail" || provider === "outlook" || provider === "yahoo" || provider === "proton" || provider === "yandex";
+    if (isWeb) {
       window.open(url, "_blank", "noopener,noreferrer");
+    } else {
+      window.location.href = url;
     }
     setOpen(false);
   };
 
   const providers: { id: MailProvider; label: string; hint: string }[] = [
-    { id: "default", label: "Standard / Apple Mail", hint: "Mail-App auf diesem Gerät" },
-    { id: "gmail", label: "Gmail", hint: "Im Browser öffnen" },
-    { id: "outlook", label: "Outlook", hint: "Outlook im Web" },
+    { id: "apple", label: "Apple Mail", hint: "iPhone, iPad & Mac" },
+    { id: "gmail", label: "Gmail", hint: "Google Mail im Browser" },
+    { id: "outlook", label: "Outlook", hint: "Microsoft / Hotmail / Live" },
     { id: "yahoo", label: "Yahoo Mail", hint: "Im Browser öffnen" },
+    { id: "icloud", label: "iCloud Mail", hint: "Apple iCloud Konto" },
+    { id: "gmx", label: "GMX", hint: "Über Standard-Mailprogramm" },
+    { id: "webde", label: "WEB.DE", hint: "Über Standard-Mailprogramm" },
+    { id: "proton", label: "Proton Mail", hint: "Verschlüsselt im Browser" },
+    { id: "aol", label: "AOL Mail", hint: "Über Standard-Mailprogramm" },
+    { id: "zoho", label: "Zoho Mail", hint: "Über Standard-Mailprogramm" },
+    { id: "yandex", label: "Yandex Mail", hint: "Im Browser öffnen" },
+    { id: "mailcom", label: "mail.com", hint: "Über Standard-Mailprogramm" },
+    { id: "default", label: "Anderes Programm", hint: "System-Standard verwenden" },
   ];
 
   return (
