@@ -116,7 +116,7 @@ const Team = () => {
                         src={m.image}
                         alt={m.name}
                         loading="lazy"
-                        className="w-24 h-24 rounded-full object-cover object-top mx-auto mb-4 bg-gradient-to-br from-primary/10 to-accent/10"
+                        className="w-24 h-24 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full object-cover object-top mx-auto mb-4 bg-gradient-to-br from-primary/10 to-accent/10"
                       />
                     ) : (
                       <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-4 flex items-center justify-center text-primary font-display font-bold text-xl">
