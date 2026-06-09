@@ -1,32 +1,42 @@
 import { ArrowRight } from "lucide-react";
-import teamImg from "@/assets/team-doctor.jpg";
+import ajoudaniAsset from "@/assets/ajoudani-new.jpeg.asset.json";
+import altiparmakAsset from "@/assets/altiparmak.jpeg.asset.json";
+import stephanieAnime from "@/assets/anime-stephanie.jpeg.asset.json";
+import doreenAnime from "@/assets/anime-doreen.jpeg.asset.json";
+import masomeAnime from "@/assets/anime-masome.jpeg.asset.json";
+import huemiAnime from "@/assets/anime-huemi.jpeg.asset.json";
+import phuongAnime from "@/assets/anime-phuong.jpeg.asset.json";
 
 const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopaedie-ajoudani-negar?utm_campaign=website-button&utm_source=kieferorthopaedie-ajoudani-negar-website-button&utm_medium=referral&utm_content=option-8&utm_term=kieferorthopaedie-ajoudani-negar";
 
 type Member = {
   name: string;
   role: string;
+  image?: string;
 };
 
 const teamGroups: { title: string; members: Member[] }[] = [
   {
+    title: "Assistenz Zahnarzt",
+    members: [{ name: "Dr. M. Altiparmak", role: "Assistenz Zahnarzt", image: altiparmakAsset.url }],
+  },
+  {
     title: "Anmeldung / Praxismanagerin / ZFA",
-    members: [{ name: "Hümi", role: "Anmeldung & Praxismanagement" }],
+    members: [{ name: "Hümi", role: "Anmeldung & Praxismanagement", image: huemiAnime.url }],
   },
   {
     title: "Verwaltungsfachangestellte / ZMP",
-    members: [{ name: "Stephanie", role: "Verwaltung & Prophylaxe" }],
+    members: [{ name: "Stephanie", role: "Verwaltung & Prophylaxe", image: stephanieAnime.url }],
   },
   {
     title: "Zahnmedizinische Fachangestellte",
-    members: [{ name: "Doreen", role: "ZFA" }],
+    members: [{ name: "Doreen", role: "Zahnmedizinische Fachangestellte / Bestellung Beauftragte", image: doreenAnime.url }],
   },
   {
     title: "Auszubildende",
     members: [
-      { name: "Masome", role: "Auszubildende" },
-      { name: "Lana", role: "Auszubildende" },
-      { name: "Phuong", role: "Auszubildende" },
+      { name: "Masome", role: "Auszubildende", image: masomeAnime.url },
+      { name: "Phuong", role: "Auszubildende", image: phuongAnime.url },
     ],
   },
 ];
@@ -58,10 +68,8 @@ const Team = () => {
           </div>
           <div tabIndex={0} className="bubble-card bg-card border border-border p-8 md:p-10 text-center shadow-sm hover:shadow-xl">
             <img
-              src={teamImg}
+              src={ajoudaniAsset.url}
               alt="Dr. med. dent. Negar Ajoudani – Fachzahnärztin für Kieferorthopädie"
-              width={1024}
-              height={1024}
               loading="lazy"
               className="w-56 h-56 rounded-full object-cover object-top mx-auto mb-6"
             />
@@ -103,9 +111,18 @@ const Team = () => {
                     key={m.name}
                     className="bubble-card bg-card border border-border p-6 text-center shadow-sm hover:shadow-lg"
                   >
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-4 flex items-center justify-center text-primary font-display font-bold text-xl">
-                      {initials(m.name)}
-                    </div>
+                    {m.image ? (
+                      <img
+                        src={m.image}
+                        alt={m.name}
+                        loading="lazy"
+                        className="w-24 h-24 rounded-full object-cover object-top mx-auto mb-4 bg-gradient-to-br from-primary/10 to-accent/10"
+                      />
+                    ) : (
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-4 flex items-center justify-center text-primary font-display font-bold text-xl">
+                        {initials(m.name)}
+                      </div>
+                    )}
                     <h4 className="text-lg font-display font-semibold text-foreground mb-1">
                       {m.name}
                     </h4>
