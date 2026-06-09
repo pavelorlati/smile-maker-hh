@@ -15,6 +15,7 @@ type Member = {
   image?: string;
   objectPosition?: string;
   zoom?: number;
+  fit?: "cover" | "contain";
 };
 
 const teamGroups: { title: string; members: Member[] }[] = [
