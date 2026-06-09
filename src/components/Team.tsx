@@ -114,12 +114,19 @@ const Team = () => {
                     className="bubble-card bg-card border border-border p-6 text-center shadow-sm hover:shadow-lg"
                   >
                     {m.image ? (
-                      <img
-                        src={m.image}
-                        alt={m.name}
-                        loading="lazy"
-                        className="w-24 h-24 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full object-cover object-top mx-auto mb-4 bg-gradient-to-br from-primary/10 to-accent/10"
-                      />
+                      <div className="w-24 h-24 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden mx-auto mb-4 bg-gradient-to-br from-primary/10 to-accent/10">
+                        <img
+                          src={m.image}
+                          alt={m.name}
+                          loading="lazy"
+                          style={{
+                            objectPosition: m.objectPosition ?? "center top",
+                            transform: m.zoom ? `scale(${m.zoom})` : undefined,
+                            transformOrigin: "center top",
+                          }}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
                     ) : (
                       <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-4 flex items-center justify-center text-primary font-display font-bold text-xl">
                         {initials(m.name)}
