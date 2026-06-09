@@ -24,7 +24,7 @@ const teamGroups: { title: string; members: Member[] }[] = [
   },
   {
     title: "Anmeldung / Praxismanagerin / ZFA",
-    members: [{ name: "Hümi", role: "Anmeldung & Praxismanagement", image: huemiAnime.url, objectPosition: "center 30%", zoom: 1.35 }],
+    members: [{ name: "Hümi", role: "Anmeldung & Praxismanagement", image: huemiAnime.url, objectPosition: "center center", zoom: 0.75 }],
   },
   {
     title: "Verwaltungsfachangestellte / ZMP",
