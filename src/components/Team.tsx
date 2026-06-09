@@ -4,7 +4,7 @@ import altiparmakAsset from "@/assets/altiparmak.jpeg.asset.json";
 import stephanieAnime from "@/assets/anime-stephanie.jpeg.asset.json";
 import doreenAnime from "@/assets/anime-doreen.jpeg.asset.json";
 import masomeAnime from "@/assets/anime-masome.jpeg.asset.json";
-import huemiAnime from "@/assets/anime-huemi.jpeg.asset.json";
+import huemiAnime from "@/assets/anime-huemi-padded.jpeg";
 import phuongAnime from "@/assets/anime-phuong.jpeg.asset.json";
 
 const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopaedie-ajoudani-negar?utm_campaign=website-button&utm_source=kieferorthopaedie-ajoudani-negar-website-button&utm_medium=referral&utm_content=option-8&utm_term=kieferorthopaedie-ajoudani-negar";
@@ -25,7 +25,7 @@ const teamGroups: { title: string; members: Member[] }[] = [
   },
   {
     title: "Anmeldung / Praxismanagerin / ZFA",
-    members: [{ name: "Hümi", role: "Anmeldung & Praxismanagement", image: huemiAnime.url, objectPosition: "center center", zoom: 0.95, fit: "contain" }],
+    members: [{ name: "Hümi", role: "Anmeldung & Praxismanagement", image: huemiAnime, objectPosition: "center center" }],
   },
   {
     title: "Verwaltungsfachangestellte / ZMP",
