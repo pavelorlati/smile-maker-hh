@@ -24,7 +24,7 @@ const teamGroups: { title: string; members: Member[] }[] = [
   },
   {
     title: "Anmeldung / Praxismanagerin / ZFA",
-    members: [{ name: "Hümi", role: "Anmeldung & Praxismanagement", image: huemiAnime.url, objectPosition: "center 30%", zoom: 1.35 }],
+    members: [{ name: "Hümi", role: "Anmeldung & Praxismanagement", image: huemiAnime.url, objectPosition: "center center", zoom: 0.75 }],
   },
   {
     title: "Verwaltungsfachangestellte / ZMP",
@@ -124,7 +124,7 @@ const Team = () => {
                             transform: m.zoom ? `scale(${m.zoom})` : undefined,
                             transformOrigin: "center top",
                           }}
-                          className="w-full h-full object-cover"
+                          className={`w-full h-full ${m.zoom && m.zoom < 1 ? "object-contain" : "object-cover"}`}
                         />
                       </div>
                     ) : (
