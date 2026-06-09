@@ -126,25 +126,8 @@ const Galerie = () => {
               </div>
             </Section>
 
-            {/* Video */}
-            <Section
-              title="Ein Rundgang durch die Praxis"
-              intro="Begleiten Sie uns auf einem kurzen Rundgang durch unsere Räumlichkeiten – ein erster Eindruck, bevor Sie uns persönlich besuchen."
-            >
-              <div className="rounded-2xl overflow-hidden border border-border shadow-sm bg-card max-w-4xl mx-auto">
-                <video
-                  src="/videos/wartezimmer.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                  className="w-full h-auto block"
-                  aria-label="Videorundgang durch die Praxis Dr. Ajoudani"
-                />
-              </div>
-            </Section>
           </div>
+
         </div>
       </section>
       <CTABanner
