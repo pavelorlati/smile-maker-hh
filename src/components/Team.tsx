@@ -124,7 +124,7 @@ const Team = () => {
                             transform: m.zoom ? `scale(${m.zoom})` : undefined,
                             transformOrigin: "center top",
                           }}
-                          className="w-full h-full object-cover"
+                          className={`w-full h-full ${m.zoom && m.zoom < 1 ? "object-contain" : "object-cover"}`}
                         />
                       </div>
                     ) : (
