@@ -13,6 +13,8 @@ type Member = {
   name: string;
   role: string;
   image?: string;
+  objectPosition?: string;
+  zoom?: number;
 };
 
 const teamGroups: { title: string; members: Member[] }[] = [
