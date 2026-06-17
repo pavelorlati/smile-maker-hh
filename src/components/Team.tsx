@@ -1,11 +1,11 @@
 import { ArrowRight } from "lucide-react";
-import ajoudaniAsset from "@/assets/ajoudani-new.jpeg.asset.json";
-import altiparmakAsset from "@/assets/altiparmak.jpeg.asset.json";
-import stephanieAnime from "@/assets/anime-stephanie.jpeg.asset.json";
-import doreenAnime from "@/assets/anime-doreen.jpeg.asset.json";
-import masomeAnime from "@/assets/anime-masome.jpeg.asset.json";
+import ajoudaniImg from "@/assets/ajoudani-new.jpeg";
+import altiparmakImg from "@/assets/altiparmak.jpeg";
+import stephanieAnime from "@/assets/anime-stephanie.jpeg";
+import doreenAnime from "@/assets/anime-doreen.jpeg";
+import masomeAnime from "@/assets/anime-masome.jpeg";
 import huemiAnime from "@/assets/anime-huemi-padded.jpeg";
-import phuongAnime from "@/assets/anime-phuong.jpeg.asset.json";
+import phuongAnime from "@/assets/anime-phuong.jpeg";
 
 const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopaedie-ajoudani-negar?utm_campaign=website-button&utm_source=kieferorthopaedie-ajoudani-negar-website-button&utm_medium=referral&utm_content=option-8&utm_term=kieferorthopaedie-ajoudani-negar";
 
