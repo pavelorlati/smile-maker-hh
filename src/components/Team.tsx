@@ -1,11 +1,11 @@
 import { ArrowRight } from "lucide-react";
-import ajoudaniAsset from "@/assets/ajoudani-new.jpeg.asset.json";
-import altiparmakAsset from "@/assets/altiparmak.jpeg.asset.json";
-import stephanieAnime from "@/assets/anime-stephanie.jpeg.asset.json";
-import doreenAnime from "@/assets/anime-doreen.jpeg.asset.json";
-import masomeAnime from "@/assets/anime-masome.jpeg.asset.json";
+import ajoudaniImg from "@/assets/ajoudani-new.jpeg";
+import altiparmakImg from "@/assets/altiparmak.jpeg";
+import stephanieAnime from "@/assets/anime-stephanie.jpeg";
+import doreenAnime from "@/assets/anime-doreen.jpeg";
+import masomeAnime from "@/assets/anime-masome.jpeg";
 import huemiAnime from "@/assets/anime-huemi-padded.jpeg";
-import phuongAnime from "@/assets/anime-phuong.jpeg.asset.json";
+import phuongAnime from "@/assets/anime-phuong.jpeg";
 
 const DOCTOLIB_URL = "https://www.doctolib.de/einzelpraxis/hamburg/kieferorthopaedie-ajoudani-negar?utm_campaign=website-button&utm_source=kieferorthopaedie-ajoudani-negar-website-button&utm_medium=referral&utm_content=option-8&utm_term=kieferorthopaedie-ajoudani-negar";
 
@@ -21,7 +21,7 @@ type Member = {
 const teamGroups: { title: string; members: Member[] }[] = [
   {
     title: "Assistenz Zahnarzt",
-    members: [{ name: "Dr. M. Altiparmak", role: "Assistenz Zahnarzt", image: altiparmakAsset.url }],
+    members: [{ name: "Dr. M. Altiparmak", role: "Assistenz Zahnarzt", image: altiparmakImg }],
   },
   {
     title: "Anmeldung / Praxismanagerin / ZFA",
@@ -29,17 +29,17 @@ const teamGroups: { title: string; members: Member[] }[] = [
   },
   {
     title: "Verwaltungsfachangestellte / ZMP",
-    members: [{ name: "Stephanie", role: "Verwaltung & Prophylaxe", image: stephanieAnime.url }],
+    members: [{ name: "Stephanie", role: "Verwaltung & Prophylaxe", image: stephanieAnime }],
   },
   {
     title: "Zahnmedizinische Fachangestellte",
-    members: [{ name: "Doreen", role: "Zahnmedizinische Fachangestellte / Bestellung Beauftragte", image: doreenAnime.url }],
+    members: [{ name: "Doreen", role: "Zahnmedizinische Fachangestellte / Bestellung Beauftragte", image: doreenAnime }],
   },
   {
     title: "Auszubildende",
     members: [
-      { name: "Masome", role: "Auszubildende", image: masomeAnime.url },
-      { name: "Phuong", role: "Auszubildende", image: phuongAnime.url },
+      { name: "Masome", role: "Auszubildende", image: masomeAnime },
+      { name: "Phuong", role: "Auszubildende", image: phuongAnime },
     ],
   },
 ];
@@ -71,7 +71,7 @@ const Team = () => {
           </div>
           <div tabIndex={0} className="bubble-card bg-card border border-border p-8 md:p-10 text-center shadow-sm hover:shadow-xl">
             <img
-              src={ajoudaniAsset.url}
+              src={ajoudaniImg}
               alt="Dr. med. dent. Negar Ajoudani – Fachzahnärztin für Kieferorthopädie"
               loading="lazy"
               className="w-56 h-56 rounded-full object-cover object-top mx-auto mb-6"
