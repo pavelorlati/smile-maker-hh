@@ -21,7 +21,7 @@ type Member = {
 const teamGroups: { title: string; members: Member[] }[] = [
   {
     title: "Assistenz Zahnarzt",
-    members: [{ name: "Dr. M. Altiparmak", role: "Assistenz Zahnarzt", image: altiparmakAsset.url }],
+    members: [{ name: "Dr. M. Altiparmak", role: "Assistenz Zahnarzt", image: altiparmakImg }],
   },
   {
     title: "Anmeldung / Praxismanagerin / ZFA",
@@ -29,17 +29,17 @@ const teamGroups: { title: string; members: Member[] }[] = [
   },
   {
     title: "Verwaltungsfachangestellte / ZMP",
-    members: [{ name: "Stephanie", role: "Verwaltung & Prophylaxe", image: stephanieAnime.url }],
+    members: [{ name: "Stephanie", role: "Verwaltung & Prophylaxe", image: stephanieAnime }],
   },
   {
     title: "Zahnmedizinische Fachangestellte",
-    members: [{ name: "Doreen", role: "Zahnmedizinische Fachangestellte / Bestellung Beauftragte", image: doreenAnime.url }],
+    members: [{ name: "Doreen", role: "Zahnmedizinische Fachangestellte / Bestellung Beauftragte", image: doreenAnime }],
   },
   {
     title: "Auszubildende",
     members: [
-      { name: "Masome", role: "Auszubildende", image: masomeAnime.url },
-      { name: "Phuong", role: "Auszubildende", image: phuongAnime.url },
+      { name: "Masome", role: "Auszubildende", image: masomeAnime },
+      { name: "Phuong", role: "Auszubildende", image: phuongAnime },
     ],
   },
 ];
@@ -71,7 +71,7 @@ const Team = () => {
           </div>
           <div tabIndex={0} className="bubble-card bg-card border border-border p-8 md:p-10 text-center shadow-sm hover:shadow-xl">
             <img
-              src={ajoudaniAsset.url}
+              src={ajoudaniImg}
               alt="Dr. med. dent. Negar Ajoudani – Fachzahnärztin für Kieferorthopädie"
               loading="lazy"
               className="w-56 h-56 rounded-full object-cover object-top mx-auto mb-6"
