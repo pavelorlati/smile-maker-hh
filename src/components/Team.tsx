@@ -29,7 +29,7 @@ const teamGroups: { title: string; members: Member[] }[] = [
   },
   {
     title: "Verwaltungsfachangestellte / ZMP",
-    members: [{ name: "Stephanie", role: "Verwaltung & Prophylaxe", image: stephanieAnime }],
+    members: [{ name: "Stephanie", role: "Verwaltungsfachangestellte / ZFA / Kieferorthopädie Assistentin", image: stephanieAnime }],
   },
   {
     title: "Zahnmedizinische Fachangestellte",
