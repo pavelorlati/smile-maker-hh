@@ -20,7 +20,7 @@ type Member = {
 
 const teamGroups: { title: string; members: Member[] }[] = [
   {
-    title: "Assistenz",
+    title: "Assistenz\u00a0",
     members: [{ name: "Dr. M. Altiparmak", role: "Assistenz", image: altiparmakImg }],
   },
   {
