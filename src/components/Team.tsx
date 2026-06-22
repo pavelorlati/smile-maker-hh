@@ -20,8 +20,8 @@ type Member = {
 
 const teamGroups: { title: string; members: Member[] }[] = [
   {
-    title: "Assistenz Zahnarzt",
-    members: [{ name: "Dr. M. Altiparmak", role: "Assistenz Zahnarzt", image: altiparmakImg }],
+    title: "Assistenz",
+    members: [{ name: "Dr. M. Altiparmak", role: "Assistenz", image: altiparmakImg }],
   },
   {
     title: "Anmeldung / Praxismanagerin / ZFA",
@@ -33,7 +33,7 @@ const teamGroups: { title: string; members: Member[] }[] = [
   },
   {
     title: "Zahnmedizinische Fachangestellte",
-    members: [{ name: "Doreen", role: "Zahnmedizinische Fachangestellte / Bestellung Beauftragte", image: doreenAnime }],
+    members: [{ name: "Doreen", role: "Zahnmedizinische Fachangestellte / Einkauf und Material Wirtschaft", image: doreenAnime }],
   },
   {
     title: "Auszubildende",
